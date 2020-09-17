@@ -44,19 +44,19 @@ public class IntersectionNode {
         SinglyListNode tempHeadA = headA;
         SinglyListNode tempHeadB = headB;
 
-        //Calculate the length of listA.
+        // Calculate the length of listA.
         while (tempHeadA != null) {
             lengthA++;
             tempHeadA = tempHeadA.next;
         }
 
-        //Calculate the length of listB.
+        // Calculate the length of listB.
         while (tempHeadB != null) {
             lengthB++;
             tempHeadB = tempHeadB.next;
         }
 
-        //Move the pointer of longer list first.
+        // Move the pointer of longer list first.
         int length = lengthA > lengthB ? (lengthA - lengthB) : (lengthB - lengthA);
         for (int i = 0; i < length; i++) {
             if (lengthA > lengthB && headA != null) {
@@ -67,7 +67,8 @@ public class IntersectionNode {
             }
         }
 
-        //Then move two pointers of lists respectively at the same time.
+        // Then move two pointers of lists respectively at the same time.
+        // The node at which they meet is what we need.
         while (headA != null && headB != null) {
             if (headA == headB) {
                 return headA;

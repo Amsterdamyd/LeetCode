@@ -5,6 +5,7 @@ Basic Learning (145):
 2. Comnplete the card: Linked List - 30
 3. Complete the card: Binary Tree - 19
 4. Complete the card: Recursion - 21
+
 (4. Complete the card: Hash Table - 35)
 (5. Complete the card: Queue and Stack - 32)
 

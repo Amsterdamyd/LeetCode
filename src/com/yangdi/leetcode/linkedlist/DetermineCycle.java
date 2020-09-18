@@ -24,9 +24,7 @@ public class DetermineCycle {
             slowNode = slowNode.next;
             quickNode = quickNode.next.next;
 
-            if (quickNode != null
-                    && slowNode != null
-                    && quickNode == slowNode){
+            if (quickNode == slowNode){
                 return true;
             }
         }
@@ -51,8 +49,8 @@ public class DetermineCycle {
             if (fast == null || fast.next == null) {
                 return false;
             }
-            slow = slow.next;
-            fast = fast.next.next;
+            slow = slow.next; // move slow pointer one step each time
+            fast = fast.next.next; // move fast pointer two steps each time
         }
         return true;
     }

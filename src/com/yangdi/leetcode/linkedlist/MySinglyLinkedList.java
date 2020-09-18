@@ -4,6 +4,7 @@ package com.yangdi.leetcode.linkedlist;
  * By LeetCode
  * Time Complexity: O(1) for addAtHead, O(K) for get,addAtIndex,deleteAtIndex, O(n) for addAtTail
  * Space Complexity: O(1) for all operations.
+ * Pseudo node simplifies some corner cases such as a list with only one node, or removing the head of the list.
  */
 
 public class MySinglyLinkedList {

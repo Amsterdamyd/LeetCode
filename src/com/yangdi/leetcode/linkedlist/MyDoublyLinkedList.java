@@ -22,12 +22,12 @@ public class MyDoublyLinkedList {
         int pivot = (size - 1) / 2;
         DoublyListNode currentNode;
 
-        if (index <= pivot) {
+        if (index <= pivot) { // traverse from the beginning
             currentNode = head;
             for (int i = 0; i <= index; i++) {
                 currentNode = currentNode.next;
             }
-        } else {
+        } else { // traverse from the end
             currentNode = tail;
             for (int i = size - 1; i >= index; i--) {
                 currentNode= currentNode.pre;
@@ -44,7 +44,7 @@ public class MyDoublyLinkedList {
 
         DoublyListNode currentNode = getCurrentNode(index);
 
-        return currentNode.value;
+        return currentNode == null ? -1 : currentNode.value;
     }
 
     public int getHead() {

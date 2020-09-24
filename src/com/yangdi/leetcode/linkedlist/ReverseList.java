@@ -36,7 +36,6 @@ public class ReverseList {
 
         return pointHead.next;
     }
-
     void reverse(SinglyListNode pointHead, SinglyListNode head, SinglyListNode tmpNode) {
         if (tmpNode == null) {
             return;

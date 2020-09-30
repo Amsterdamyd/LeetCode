@@ -7,8 +7,8 @@ public class RotateArray {
     /**
      * Time complexity: O(n*n)
      * Space complexity: O(1)
-     * @param nums
-     * @param k
+     * Inner for: Move the whole array by one step
+     * External for: Move k steps
      */
     public void rotate1(int[] nums, int k) {
         int lastIndex = nums.length - 1;
@@ -26,8 +26,8 @@ public class RotateArray {
     /**
      * Time complexity: O(n)
      * Space complexity: O(n)
-     * @param nums
-     * @param k
+     * Create a new array and assign a value to it.
+     * Then assign the new array back to the old one.
      */
     public void rotate2(int[] nums, int k) {
         int[] newNums = new int[nums.length];
@@ -48,27 +48,26 @@ public class RotateArray {
      * Time complexity: O(n)
      * Space complexity: O(1)
      * Cyclic Replacements (Recommended)
-     * @param nums
-     * @param k
      */
     public void rotate3(int[] nums, int k) {
-        k %= nums.length;
-
+        k %= nums.length; //handle the k first
         int count = 0;
+
+        //The loop ends after all numbers are moved
         for (int i = 0; count < nums.length; i++) {
-            int current = i;
-            int pre = nums[current];
+            int currentIndex = i;
+            int currentNum = nums[currentIndex];
 
             do {
-                int nextIndex = (current + k) % nums.length;
+                int nextIndex = (currentIndex + k) % nums.length;
                 int nextNum = nums[nextIndex];
-                nums[nextIndex] = pre;
+                nums[nextIndex] = currentNum; //move the current number to the next position
 
-                pre = nextNum;
-                current = nextIndex;
+                currentIndex = nextIndex;
+                currentNum = nextNum;
 
-                count++;
-            } while (i != current);
+                count++; //the number of movements
+            } while (i != currentIndex);
         }
     }
 

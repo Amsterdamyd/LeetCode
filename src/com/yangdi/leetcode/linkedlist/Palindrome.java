@@ -62,9 +62,10 @@ public class Palindrome {
         return result;
     }
 
+    // Reverse the linked list.
     // Taken from https://leetcode.com/problems/reverse-linked-list/solution/
     private SinglyListNode reverseList(SinglyListNode head) {
-        /*SinglyListNode prev = null;
+        SinglyListNode prev = null;
         SinglyListNode curr = head;
         while (curr != null) {
             SinglyListNode nextTemp = curr.next;
@@ -72,22 +73,10 @@ public class Palindrome {
             prev = curr;
             curr = nextTemp;
         }
-        return prev;*/
-
-        SinglyListNode pointer = new SinglyListNode(0);
-        pointer.next = head;
-        SinglyListNode tmp = head.next;
-
-        while (tmp != null) {
-            head.next = tmp.next;
-            tmp.next = pointer.next;
-            pointer.next = tmp;
-            tmp = head.next;
-        }
-
-        return pointer.next;
+        return prev;
     }
 
+    // Find the middle node of the list.
     private SinglyListNode endOfFirstHalf(SinglyListNode head) {
         SinglyListNode fast = head;
         SinglyListNode slow = head;

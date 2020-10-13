@@ -1,7 +1,7 @@
 package com.yangdi.leetcode.binarytree;
 
 public class TagTreeNode {
-    String s;   // go, print
+    String s;   // untagged, tagged
     TreeNode node;
 
     TagTreeNode(String s, TreeNode node){

@@ -94,27 +94,28 @@ public class PostorderTraversal {
     //Iterative solution - from https://github.com/liuyubobobo
     public List<Integer> postorderTraversal4(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
-        if(root == null) {
+
+        if (root == null) {
             return res;
         }
 
         Stack<TagTreeNode> stack = new Stack<>();
-        stack.push(new TagTreeNode("go", root));
+        stack.push(new TagTreeNode("untagged", root));
 
-        while(!stack.empty()) {
+        while (!stack.empty()) {
             TagTreeNode tagNode = stack.pop();
 
-            if(tagNode.s.equals("print")) {
+            if (tagNode.s.equals("tagged")) {
                 res.add(tagNode.node.val);
             } else {
-                assert tagNode.s.equals("go");
-                stack.push(new TagTreeNode("print", tagNode.node));
+                assert tagNode.s.equals("untagged");
+                stack.push(new TagTreeNode("tagged", tagNode.node));
 
-                if(tagNode.node.right != null) {
-                    stack.push(new TagTreeNode("go", tagNode.node.right));
+                if (tagNode.node.right != null) {
+                    stack.push(new TagTreeNode("untagged", tagNode.node.right));
                 }
-                if(tagNode.node.left != null) {
-                    stack.push(new TagTreeNode("go", tagNode.node.left));
+                if (tagNode.node.left != null) {
+                    stack.push(new TagTreeNode("untagged", tagNode.node.left));
                 }
             }
         }

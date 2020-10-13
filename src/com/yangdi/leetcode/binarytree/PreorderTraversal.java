@@ -57,28 +57,28 @@ public class PreorderTraversal {
     //Iterative solution - from https://github.com/liuyubobobo
     public List<Integer> preorderTraversal3(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return res;
         }
 
         Stack<TagTreeNode> stack = new Stack<>();
-        stack.push(new TagTreeNode("go", root));
+        stack.push(new TagTreeNode("untagged", root));
 
-        while(!stack.empty()) {
-            TagTreeNode tagNode = stack.pop();
+        while (!stack.empty()) {
+            TagTreeNode treeNode = stack.pop();
 
-            if(tagNode.s.equals("print")) {
-                res.add(tagNode.node.val);
+            if (treeNode.s.equals("tagged")) {
+                res.add(treeNode.node.val);
             } else {
-                assert tagNode.s.equals("go");
-                if(tagNode.node.right != null) {
-                    stack.push(new TagTreeNode("go",tagNode.node.right));
+                assert treeNode.s.equals("untagged");
+                if (treeNode.node.right != null) {
+                    stack.push(new TagTreeNode("untagged",treeNode.node.right));
                 }
-                if(tagNode.node.left != null) {
-                    stack.push(new TagTreeNode("go", tagNode.node.left));
+                if (treeNode.node.left != null) {
+                    stack.push(new TagTreeNode("untagged", treeNode.node.left));
                 }
 
-                stack.push(new TagTreeNode("print", tagNode.node));
+                stack.push(new TagTreeNode("tagged", treeNode.node));
             }
         }
         return res;

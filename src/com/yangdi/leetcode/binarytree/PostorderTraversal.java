@@ -33,7 +33,12 @@ public class PostorderTraversal {
         list.add(node.val);
     }
 
-    // iterative solution 1: Tweak the Order of the Output
+    /**
+     * iterative solution 1 (from LeetCode)
+     * Tweak the Order of the Output
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     */
     public List<Integer> postorderTraversal2(TreeNode root) {
         LinkedList<Integer> output = new LinkedList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -59,7 +64,11 @@ public class PostorderTraversal {
         return output;
     }
 
-    // iterative solution 2 - LeetCode
+    /**
+     * iterative solution 2 (from LeetCode)
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     */
     public List<Integer> postorderTraversal3(TreeNode root) {
         List<Integer> output = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
@@ -91,31 +100,32 @@ public class PostorderTraversal {
         return output;
     }
 
-    //Iterative solution - from https://github.com/liuyubobobo
+    /**
+     * iterative solution 3
+     * from https://github.com/liuyubobobo
+     */
     public List<Integer> postorderTraversal4(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
-
         if (root == null) {
             return res;
         }
 
         Stack<TagTreeNode> stack = new Stack<>();
-        stack.push(new TagTreeNode("untagged", root));
+        stack.push(new TagTreeNode(false, root));
 
         while (!stack.empty()) {
             TagTreeNode tagNode = stack.pop();
 
-            if (tagNode.s.equals("tagged")) {
+            if (tagNode.isTagged) {
                 res.add(tagNode.node.val);
             } else {
-                assert tagNode.s.equals("untagged");
-                stack.push(new TagTreeNode("tagged", tagNode.node));
+                stack.push(new TagTreeNode(true, tagNode.node));
 
                 if (tagNode.node.right != null) {
-                    stack.push(new TagTreeNode("untagged", tagNode.node.right));
+                    stack.push(new TagTreeNode(false, tagNode.node.right));
                 }
                 if (tagNode.node.left != null) {
-                    stack.push(new TagTreeNode("untagged", tagNode.node.left));
+                    stack.push(new TagTreeNode(false, tagNode.node.left));
                 }
             }
         }

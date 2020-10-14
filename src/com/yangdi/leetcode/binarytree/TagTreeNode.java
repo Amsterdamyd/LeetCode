@@ -1,11 +1,11 @@
 package com.yangdi.leetcode.binarytree;
 
 public class TagTreeNode {
-    String s;   // untagged, tagged
+    boolean isTagged;   // true:tagged,  false:untagged
     TreeNode node;
 
-    TagTreeNode(String s, TreeNode node){
-        this.s = s;
+    TagTreeNode(boolean isTagged, TreeNode node){
+        this.isTagged = isTagged;
         this.node = node;
     }
 }

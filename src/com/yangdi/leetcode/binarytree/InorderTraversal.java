@@ -20,7 +20,7 @@ public class InorderTraversal {
     /**
      * Recursive solution
      * Time complexity: O(n)
-     * Space complexity: O(log n) (n is the number of the node)
+     * Space complexity: average case: O(log n); the most worst case: O(n)
      */
     void inOrder(TreeNode node) {
         if (node == null) return;
@@ -32,7 +32,9 @@ public class InorderTraversal {
 
     /**
      * Iterative solution
-     *
+     * From LeetCode
+     * Time complexity: O(n)
+     * Space complexity: O(n)
      */
     public List<Integer> inorderTraversal2(TreeNode root) {
         if (root == null) {
@@ -59,7 +61,10 @@ public class InorderTraversal {
         return list;
     }
 
-    //Iterative solution - from https://github.com/liuyubobobo
+    /**
+     * Iterative solution
+     * from https://github.com/liuyubobobo
+     */
     public List<Integer> inorderTraversal3(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
         if (root == null) {
@@ -67,23 +72,22 @@ public class InorderTraversal {
         }
 
         Stack<TagTreeNode> stack = new Stack<>();
-        stack.push(new TagTreeNode("untagged", root));
+        stack.push(new TagTreeNode(false, root));
 
         while (!stack.empty()) {
             TagTreeNode tagNode = stack.pop();
 
-            if (tagNode.s.equals("tagged")) {
+            if (tagNode.isTagged) {
                 res.add(tagNode.node.val);
             } else {
-                assert tagNode.s.equals("untagged");
                 if (tagNode.node.right != null) {
-                    stack.push(new TagTreeNode("untagged", tagNode.node.right));
+                    stack.push(new TagTreeNode(false, tagNode.node.right));
                 }
 
-                stack.push(new TagTreeNode("tagged", tagNode.node));
+                stack.push(new TagTreeNode(true, tagNode.node));
 
                 if (tagNode.node.left != null) {
-                    stack.push(new TagTreeNode("untagged", tagNode.node.left));
+                    stack.push(new TagTreeNode(false, tagNode.node.left));
                 }
             }
         }

@@ -17,7 +17,11 @@ public class PreorderTraversal {
         return list;
     }
 
-    //Recursive solution
+    /**
+     * Recursive solution
+     * Time complexity: O(n) (Every node will be visited once)
+     * Space complexity: average case: O(log n); the most worst case: O(n)
+     */
     void preOrder(TreeNode node) {
         if (node == null) {
             return;
@@ -29,7 +33,12 @@ public class PreorderTraversal {
         preOrder(node.right);
     }
 
-    //Iterative solution
+    /**
+     * Iterative solution
+     * from leetCode
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     */
     public List<Integer> preorderTraversal2(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         LinkedList<Integer> output = new LinkedList<>();
@@ -54,7 +63,10 @@ public class PreorderTraversal {
         return output;
     }
 
-    //Iterative solution - from https://github.com/liuyubobobo
+    /**
+     * Iterative solution
+     * from https://github.com/liuyubobobo
+     */
     public List<Integer> preorderTraversal3(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
         if (root == null) {
@@ -62,23 +74,22 @@ public class PreorderTraversal {
         }
 
         Stack<TagTreeNode> stack = new Stack<>();
-        stack.push(new TagTreeNode("untagged", root));
+        stack.push(new TagTreeNode(false, root));
 
         while (!stack.empty()) {
-            TagTreeNode treeNode = stack.pop();
+            TagTreeNode tagNode = stack.pop();
 
-            if (treeNode.s.equals("tagged")) {
-                res.add(treeNode.node.val);
+            if (tagNode.isTagged) {
+                res.add(tagNode.node.val);
             } else {
-                assert treeNode.s.equals("untagged");
-                if (treeNode.node.right != null) {
-                    stack.push(new TagTreeNode("untagged",treeNode.node.right));
+                if (tagNode.node.right != null) {
+                    stack.push(new TagTreeNode(false,tagNode.node.right));
                 }
-                if (treeNode.node.left != null) {
-                    stack.push(new TagTreeNode("untagged", treeNode.node.left));
+                if (tagNode.node.left != null) {
+                    stack.push(new TagTreeNode(false, tagNode.node.left));
                 }
 
-                stack.push(new TagTreeNode("tagged", treeNode.node));
+                stack.push(new TagTreeNode(true, tagNode.node));
             }
         }
         return res;

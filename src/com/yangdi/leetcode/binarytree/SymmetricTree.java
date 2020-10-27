@@ -3,59 +3,78 @@ package com.yangdi.leetcode.binarytree;
 import java.util.*;
 
 public class SymmetricTree {
+
+    /**
+     * By myself(Solved)
+     * Iterative solution
+     */
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) {
+        if (root == null || (root.left == null && root.right == null)) {
             return true;
         }
+        if (root.left == null || root.right == null) {
+            return false;
+        }
 
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.add(root);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root.left);
+        queue.add(root.right);
 
         while (!queue.isEmpty()) {
-            List<Integer> list = new ArrayList<>();
-            int length = queue.size();
+            TreeNode node1 = queue.poll();
+            TreeNode node2 = queue.poll();
 
-            for (int i = 0; i < length; i++) {
-                TreeNode node = queue.poll();
-                list.add(node.val);
+            if (node1 == null && node2 == null) continue;
+            if (node1 == null || node2 == null) return false;
+            if (node1.val != node2.val) return false;
 
-                queue.add(node.left == null ? new TreeNode(-1) : node.left);
-                queue.add(node.right == null ? new TreeNode(-1) : node.right);
-            }
-
-            String flag = parseSymmetric(list);
-            if ("false" == flag) {
-                return false;
-            }
-            if ("psudo code" == flag) {
-                break;
-            }
+            queue.add(node1.left);
+            queue.add(node2.right);
+            queue.add(node1.right);
+            queue.add(node2.left);
         }
 
         return true;
     }
 
-    String parseSymmetric(List<Integer> list) {
-        boolean flag = true;
-        for (int i : list) {
-            if (i != -1) {
-                flag = false;
-                break;
-            }
+    /**
+     * Recursive solution
+     * Didn't solve the problem
+     */
+    public boolean isSymmetric2(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
+            return true;
         }
-        if (flag) {
-            return "psudo code";
-        }
-
-        int i = 0;
-        int j = list.size() - 1;
-        while (i < j) {
-            if (list.get(i++) != list.get(j--)) {
-                return "false";
-            }
+        if (root.left == null || root.right == null) {
+            return false;
         }
 
-        return "true";
+        List<Integer> leftItems = new ArrayList();
+        List<Integer> rightItems = new ArrayList();
+        leftRecursive(root.left, leftItems);
+        rightRecursive(root.right, rightItems);
+
+        return leftItems.equals(rightItems);
+    }
+
+    void leftRecursive(TreeNode note, List<Integer> leftItems) {
+        if (note == null) {
+            return;
+        }
+
+        leftItems.add(note.val);
+        leftRecursive(note.left, leftItems);
+        leftRecursive(note.right, leftItems);
+    }
+
+    void rightRecursive(TreeNode note, List<Integer> rightItems) {
+        if (note == null) {
+            return;
+        }
+
+        rightItems.add(note.val);
+        rightRecursive(note.right, rightItems);
+        rightRecursive(note.left, rightItems);
     }
 
     public static void main(String[] args) {
@@ -79,8 +98,8 @@ public class SymmetricTree {
         node3.right = node7;
         node5.left = node8;
         node5.right = node9;
-        node6.left = node10;
-        node6.right = node11;
+        node7.left = node10;
+        node7.right = node11;
 
         SymmetricTree tree = new SymmetricTree();
         boolean flag = tree.isSymmetric(node1);
@@ -89,5 +108,46 @@ public class SymmetricTree {
         } else {
             System.out.println("Tree is not symmetric");
         }
+    }
+
+    /**
+     * From Leet Code
+     * Recursive solution
+     */
+
+    public boolean isSymmetric3(TreeNode root) {
+        return isMirror(root, root);
+    }
+
+    public boolean isMirror(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null) return false;
+        return (t1.val == t2.val)
+                && isMirror(t1.right, t2.left)
+                && isMirror(t1.left, t2.right);
+    }
+
+    /**
+     * From Leet Code
+     * Iterative solution
+     */
+    public boolean isSymmetric4(TreeNode root) {
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            TreeNode t1 = q.poll();
+            TreeNode t2 = q.poll();
+            if (t1 == null && t2 == null) continue;
+            if (t1 == null || t2 == null) return false;
+            if (t1.val != t2.val) return false;
+            q.add(t1.left);
+            q.add(t2.right);
+            q.add(t1.right);
+            q.add(t2.left);
+        }
+
+        return true;
     }
 }

@@ -3,6 +3,11 @@ package com.yangdi.leetcode.binarytree;
 public class UnivalSubtrees {
 
     int sum = 0;
+
+    /**
+     * By myself
+     * finally solve the problem
+     */
     public int countUnivalSubtrees(TreeNode root) {
         if (root == null) {
             return sum;
@@ -21,18 +26,23 @@ public class UnivalSubtrees {
 
         if (leftVal == Integer.MIN_VALUE && rightVal == Integer.MIN_VALUE) {
             sum++;
+            return root.val;
         } else if (leftVal == Integer.MIN_VALUE || rightVal == Integer.MIN_VALUE) {
             int returnVal = (leftVal == Integer.MIN_VALUE) ? rightVal : leftVal;
             if (returnVal == root.val) {
                 sum++;
+                return returnVal;
+            } else {
+                return Integer.MAX_VALUE;
             }
         } else  {
             if (leftVal == rightVal && leftVal == root.val) {
                 sum++;
+                return root.val;
+            } else {
+                return Integer.MAX_VALUE;
             }
         }
-
-        return root.val;
     }
 
     public static void main(String[] args) {
@@ -56,6 +66,14 @@ public class UnivalSubtrees {
 
         UnivalSubtrees subtrees = new UnivalSubtrees();
         System.out.println(subtrees.countUnivalSubtrees3(node1));
+
+        /*boolean flag1 = false;
+        boolean flag2 = false;
+        System.out.println("&&: " + (flag1 && flag2));
+        System.out.println("||: " + (flag1 || flag2));
+        System.out.println("!: " + (!flag1 || !flag2));
+        System.out.println("|: " + (flag1 | flag2));
+        System.out.println("|: " + (!flag1 | !flag2));*/
     }
 
     /**
@@ -109,6 +127,8 @@ public class UnivalSubtrees {
 
         boolean isValidLeft = is_valid(node.left, node.val);
         boolean isValidRight = is_valid(node.right, node.val);
+        // note that || short circuits, but | does not
+        // both sides of the or get evaluated with | , so we explore all possible routes
         if (!isValidLeft | !isValidRight) {
             return false;
         }

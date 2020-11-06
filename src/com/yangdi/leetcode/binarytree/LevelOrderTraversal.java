@@ -50,6 +50,16 @@ public class LevelOrderTraversal {
      * Recursive solution 2 (By LeetCode)
      * No queue is used here. It uses the system stack.
      */
+    public List<List<Integer>> levelOrder3(TreeNode root) {
+        List<List<Integer>> levels = new ArrayList<>();
+        if (root == null) {
+            return levels;
+        }
+
+        helper(root, 0, levels);
+        return levels;
+    }
+
     public void helper(TreeNode node, int level, List<List<Integer>> levels) {
         // start the current level
         if (levels.size() == level) {
@@ -66,16 +76,6 @@ public class LevelOrderTraversal {
         if (node.right != null) {
             helper(node.right, level + 1, levels);
         }
-    }
-
-    public List<List<Integer>> levelOrder3(TreeNode root) {
-        List<List<Integer>> levels = new ArrayList<>();
-        if (root == null) {
-            return levels;
-        }
-
-        helper(root, 0, levels);
-        return levels;
     }
 
     /**

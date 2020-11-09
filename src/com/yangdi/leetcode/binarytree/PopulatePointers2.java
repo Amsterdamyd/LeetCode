@@ -23,6 +23,10 @@ public class PopulatePointers2 {
         helper(root);
         helper(root);
         helper(root);
+        helper(root);
+        helper(root);
+        helper(root);
+        helper(root);
 
         return root;
     }
@@ -33,37 +37,35 @@ public class PopulatePointers2 {
         } else if (root.left != null && root.right != null) {
             root.left.next = root.right;
             if (root.next != null) {
-                TreeNodePro nextNode = findNextNode(root.next);
-                if (nextNode != null) {
-                    root.right.next = (nextNode.left == null ? nextNode.right : nextNode.left);
-                }
+                connectNextLevelNode(root.next, root.right);
             }
 
             helper(root.left);
             helper(root.right);
         } else {
-            TreeNodePro nodeChild = (root.left == null ? root.right : root.left);
+            TreeNodePro childNode = (root.left == null ? root.right : root.left);
             if (root.next != null) {
-                TreeNodePro nextNode = findNextNode(root.next);
-                if (nextNode != null) {
-                    nodeChild.next = (nextNode.left == null ? nextNode.right : nextNode.left);
-                }
+                connectNextLevelNode(root.next, childNode);
             }
 
-            helper(nodeChild);
+            helper(childNode);
         }
     }
 
-    TreeNodePro findNextNode(TreeNodePro root) {
-        while (root != null) {
-            if (root.left != null || root.right != null) {
-                return root;
+    void connectNextLevelNode(TreeNodePro rootNext, TreeNodePro childNode) {
+        while(rootNext != null) {
+            if (rootNext.left != null || rootNext.right != null) {
+                break;
             } else {
-                root = root.next;
+                rootNext = rootNext.next;
             }
         }
 
-        return null;
+        if (rootNext == null) {
+            return;
+        }
+
+        childNode.next = (rootNext.left == null ? rootNext.right : rootNext.left);
     }
 
     /**
@@ -139,10 +141,10 @@ public class PopulatePointers2 {
     }
 
     public void processChild(TreeNodePro childNode) {
-        if (prev != null) {
-            prev.next = childNode;
-        } else {
+        if (prev == null) {
             leftmost = childNode;
+        } else {
+            prev.next = childNode;
         }
 
         prev = childNode;

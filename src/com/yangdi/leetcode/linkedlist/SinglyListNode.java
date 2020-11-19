@@ -4,10 +4,10 @@ package com.yangdi.leetcode.linkedlist;
  * By LeetCode
  */
 public class SinglyListNode {
-    int value;
-    SinglyListNode next;
+    public int value;
+    public SinglyListNode next;
 
-    SinglyListNode(int x) {
+    public SinglyListNode(int x) {
         value = x;
     }
 }

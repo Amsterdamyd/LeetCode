@@ -19,24 +19,22 @@ public class PascalTriangle {
         int initialNum = 1;
 
         for (int i = 0; i < numRows; i++) {
-            List<Integer> item = new ArrayList();
+            List<Integer> row = new ArrayList();
 
             if (i == 0) {
-                item.add(initialNum);
+                row.add(initialNum);
             } else {
-                List<Integer> lastList = list.get(i - 1);
+                List<Integer> preRow = list.get(i - 1);
                 for (int j = 0; j <= i; j++) {
-                    if (j == 0) {
-                        item.add(lastList.get(0));
-                    } else if (j == i) {
-                        item.add(lastList.get(lastList.size() - 1));
+                    if (j == 0 || j == i) {
+                        row.add(initialNum);
                     } else {
-                        item.add(lastList.get(j) + lastList.get(j - 1));
+                        row.add(preRow.get(j) + preRow.get(j - 1));
                     }
                 }
             }
 
-            list.add(item);
+            list.add(row);
         }
 
         return list;
@@ -86,7 +84,7 @@ public class PascalTriangle {
         int numRows = 5;
         PascalTriangle triangle = new PascalTriangle();
 
-        List<List<Integer>> list = triangle.generate(numRows);
+        List<List<Integer>> list = triangle.generate1(numRows);
 
         for (List<Integer> item: list) {
             for (Integer i: item) {

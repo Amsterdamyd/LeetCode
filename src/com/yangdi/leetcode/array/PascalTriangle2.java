@@ -35,8 +35,32 @@ public class PascalTriangle2 {
         return items;
     }
 
+    /**
+     * from LeetCode
+     */
+    public List<Integer> getRow2(int rowIndex) {
+        List<Integer> preRow = new ArrayList();
+        preRow.add(1);
+
+        List<Integer> curRow;
+        for (int i = 1; i <= rowIndex; i++) {
+            curRow = new ArrayList<>(i + 1);
+            curRow.add(1);
+
+            for (int j = 1; j < i; j++) {
+                curRow.add(preRow.get(j - 1) + preRow.get(j));
+            }
+
+            curRow.add(1);
+
+            preRow = curRow;
+        }
+
+        return preRow;
+    }
+
     public static void main(String[] args) {
-        int rowIndex = 1;
+        int rowIndex = 5;
 
         PascalTriangle2 pascal = new PascalTriangle2();
         List<Integer> list = pascal.getRow(rowIndex);

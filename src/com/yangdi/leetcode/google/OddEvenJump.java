@@ -109,7 +109,7 @@ public class OddEvenJump {
         //int[] A = {10,13,12,14,15};  //2
         //int[] A = {2,3,1,1,4};  //3
         int[] A = {5,1,3,4,2};  //3
-        OddEvenJump jump = new OddEvenJump();
+        OddEvenJump3 jump = new OddEvenJump3();
         System.out.println(jump.oddEvenJumps(A) + "");
     }
 }

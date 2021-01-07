@@ -1,4 +1,4 @@
-package com.yangdi.leetcode.array;
+package com.yangdi.leetcode.arraystring;
 
 public class IntegerPlusOne {
     public int[] plusOne (int[] digits) {

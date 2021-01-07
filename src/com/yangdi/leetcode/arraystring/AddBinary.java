@@ -1,4 +1,4 @@
-package com.yangdi.leetcode.array;
+package com.yangdi.leetcode.arraystring;
 
 import java.util.HashMap;
 import java.util.Map;

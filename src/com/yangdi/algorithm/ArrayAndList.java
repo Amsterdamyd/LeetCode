@@ -51,6 +51,18 @@ public class ArrayAndList {
         int key = 3;
         Integer lower = treeMap.lowerKey(key); // the greatest key strictly less than the given key
         Integer higher = treeMap.higherKey(key); // the least key strictly greater than the given key
+
+        // how to traverse a HashMap
+        Map<Integer, Integer> freq = new HashMap<>();
+        for(Integer item : A) {
+            freq.put(item, treeMap.getOrDefault(item, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
+            System.out.println("[" + (entry.getKey()) + "] = " + entry.getValue());
+        }
+        // how to get a smallest or biggest value from a HashMap
+        int smallest = Collections.min(freq.values());
+        int biggest = Collections.max(freq.values());
     }
 
 }

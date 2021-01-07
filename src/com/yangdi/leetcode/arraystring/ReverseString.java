@@ -1,4 +1,4 @@
-package com.yangdi.leetcode.array;
+package com.yangdi.leetcode.arraystring;
 
 public class ReverseString {
     public void reverse(char[] s) {

@@ -1,4 +1,4 @@
-package com.yangdi.leetcode.array;
+package com.yangdi.leetcode.arraystring;
 
 /**
  * Given an m x n 2d grid map of '1's (land) and '0's (water), return the number of islands.

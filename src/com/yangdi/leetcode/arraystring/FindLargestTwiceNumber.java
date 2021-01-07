@@ -1,4 +1,4 @@
-package com.yangdi.leetcode.array;
+package com.yangdi.leetcode.arraystring;
 
 public class FindLargestTwiceNumber {
     public int dominantIndex(int[] nums) {

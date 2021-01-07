@@ -1,4 +1,4 @@
-package com.yangdi.leetcode.array;
+package com.yangdi.leetcode.arraystring;
 
 public class RemoveDuplicates {
     public int removeDuplicates(int[] nums) {

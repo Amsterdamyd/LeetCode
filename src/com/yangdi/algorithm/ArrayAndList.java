@@ -18,18 +18,39 @@ public class ArrayAndList {
 
         int[] A = {5,1,3,4,2};
 
-        //list sorting
+        // list sorting
         list.sort(Comparator.naturalOrder()); // stable
         Collections.sort(list); //in an ascending order, stable
 
-        //array sorting
+        // array sorting
         Arrays.sort(A); //in an ascending numerical order
 
-        //list to array
+        // list to array
         System.out.println("list to array:" + list.toArray());
 
-        //array to list
+        // array to list
         System.out.println("array to list:" + Arrays.asList(A));
+
+        // ArrayList<Integer> to int[]
+        int[] nums = list.stream().mapToInt(x -> x).toArray();
+
+        // HashSet<Integer> to int[]
+        HashSet<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(1);
+        if(set.contains(1)) {
+            int[] items = set.stream().mapToInt(x -> x).toArray();
+        }
+
+        // TreeMap
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        for(int item : A) {
+            treeMap.put(item, treeMap.getOrDefault(item, 0) + 1);
+        }
+        int key = 3;
+        Integer lower = treeMap.lowerKey(key); // the greatest key strictly less than the given key
+        Integer higher = treeMap.higherKey(key); // the least key strictly greater than the given key
     }
 
 }

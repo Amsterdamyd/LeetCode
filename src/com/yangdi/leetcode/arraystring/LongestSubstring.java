@@ -17,7 +17,7 @@ public class LongestSubstring {
         int longest = 1;
         HashMap<Character, Integer> map = new HashMap<>();
 
-        while (i >= 0 && i < items.length) {
+        while (i < items.length) {
             map.put(items[i], i);
             i++;
             curLength++;

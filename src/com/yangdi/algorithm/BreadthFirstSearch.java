@@ -1,7 +1,7 @@
 package com.yangdi.algorithm;
 
 /**
- * Breadth-first Search(DFS)
+ * Breadth-first Search(BFS)
  */
 public class BreadthFirstSearch {
 }

@@ -60,9 +60,11 @@ public class ArrayAndList {
         for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
             System.out.println("[" + (entry.getKey()) + "] = " + entry.getValue());
         }
-        // how to get a smallest or biggest value from a HashMap
-        int smallest = Collections.min(freq.values());
-        int biggest = Collections.max(freq.values());
+        // how to get a smallest or biggest key or value from a HashMap
+        int smallestKey = Collections.min(freq.keySet());
+        int biggestKey = Collections.max(freq.keySet());
+        int smallestValue = Collections.min(freq.values());
+        int biggestValue = Collections.max(freq.values());
     }
 
 }

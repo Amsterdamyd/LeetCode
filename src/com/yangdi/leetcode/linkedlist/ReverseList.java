@@ -1,5 +1,8 @@
 package com.yangdi.leetcode.linkedlist;
 
+/**
+ * 206. Reverse Linked List
+ */
 public class ReverseList {
 
     //reversed iteratively
@@ -67,5 +70,47 @@ public class ReverseList {
         }
 
         return prev;
+    }
+
+    public SinglyListNode reverseList_iterative(SinglyListNode head) {
+        if (head == null) {
+            return head;
+        }
+
+        SinglyListNode priorNode = null;
+        SinglyListNode node1 = head;
+        SinglyListNode node2 = head.next;
+
+        while (node2 != null) {
+            node1.next = priorNode;
+            priorNode = node1;
+            node1 = node2;
+            node2 = node2.next;
+        }
+        node1.next = priorNode;
+
+        return node1;
+    }
+
+    public SinglyListNode reverseList_recursive(SinglyListNode head) {
+        if (head == null) {
+            return head;
+        }
+
+        return reverseList(null, head, head.next);
+    }
+
+    SinglyListNode reverseList(SinglyListNode priorNode, SinglyListNode node1, SinglyListNode node2) {
+        if (node2 == null) {
+            node1.next = priorNode;
+            return node1;
+        }
+
+        node1.next = priorNode;
+        priorNode = node1;
+        node1 = node2;
+        node2 = node2.next;
+
+        return reverseList(priorNode, node1, node2);
     }
 }

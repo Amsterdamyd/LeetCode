@@ -52,26 +52,6 @@ public class ReverseList {
         reverse(pointHead, head, tmpNode);
     }
 
-    /**
-     * By LeetCode
-     * @param head
-     * @return
-     */
-    public SinglyListNode reverseList(SinglyListNode head) {
-        SinglyListNode prev = null;
-        SinglyListNode curr = head;
-        SinglyListNode nextTemp;
-
-        while (curr != null) {
-            nextTemp = curr.next;
-            curr.next = prev; //point to the prev node
-            prev = curr;
-            curr = nextTemp;
-        }
-
-        return prev;
-    }
-
     public SinglyListNode reverseList_iterative(SinglyListNode head) {
         if (head == null) {
             return head;
@@ -112,5 +92,41 @@ public class ReverseList {
         node2 = node2.next;
 
         return reverseList(priorNode, node1, node2);
+    }
+
+    /**
+     * By LeetCode
+     * @param head
+     * @return
+     */
+    public SinglyListNode reverseList1(SinglyListNode head) {
+        SinglyListNode prev = null;
+        SinglyListNode curr = head;
+
+        while (curr != null) {
+            SinglyListNode nextTemp = curr.next;
+            curr.next = prev; //point to the prev node
+            prev = curr;
+            curr = nextTemp;
+        }
+
+        return prev;
+    }
+
+    /**
+     * By LeetCode
+     * @param head
+     * @return
+     */
+    public SinglyListNode reverseList2(SinglyListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        SinglyListNode p = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return p;
     }
 }

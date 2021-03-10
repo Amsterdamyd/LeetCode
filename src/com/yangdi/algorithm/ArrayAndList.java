@@ -31,6 +31,9 @@ public class ArrayAndList {
         // array to list
         System.out.println("array to list:" + Arrays.asList(A));
 
+        // how to print array in a simple way
+        System.out.println(Arrays.toString(A));
+
         // ArrayList<Integer> to int[]
         int[] nums = list.stream().mapToInt(x -> x).toArray();
 
@@ -58,7 +61,7 @@ public class ArrayAndList {
             freq.put(item, treeMap.getOrDefault(item, 0) + 1);
         }
         for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
-            System.out.println("[" + (entry.getKey()) + "] = " + entry.getValue());
+            System.out.println("entry = [" + (entry.getKey()) + "] = " + entry.getValue());
         }
         // how to get a smallest or biggest key or value from a HashMap
         int smallestKey = Collections.min(freq.keySet());

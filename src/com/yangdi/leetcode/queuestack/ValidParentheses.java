@@ -1,5 +1,6 @@
 package com.yangdi.leetcode.queuestack;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -84,10 +85,26 @@ public class ValidParentheses {
         ValidParentheses ValidParentheses = new ValidParentheses();
         boolean flag = ValidParentheses.isValid1(s);
 
+        int x = Integer.MAX_VALUE;
+        int y = Integer.MIN_VALUE;
+        System.out.println(x);
+        System.out.println(y);
+
+        int[] a = new int[]{1,2,3};
+        //int[] b = Arrays.copyOf(a, a.length);
+        int[] b = new int[3];
+        copy(b, a);
+        System.out.println(Arrays.toString(b));
+
         if (flag) {
             System.out.println("true");
         } else {
             System.out.println("false");
         }
+    }
+
+    private static void copy(int[] bb, int[] aa) {
+        bb[0] = 1;
+        bb = Arrays.copyOf(aa, aa.length);
     }
 }

@@ -17,13 +17,16 @@ public class ArrayAndList {
         list.add(6);
 
         int[] A = {5,1,3,4,2};
+        Integer[] B = {5,1,3,4,2};
 
         // list sorting
         list.sort(Comparator.naturalOrder()); // stable
         Collections.sort(list); //in an ascending order, stable
 
-        // array sorting
-        Arrays.sort(A); //in an ascending numerical order
+        // array sorting(quick sort)
+        Arrays.sort(A); //in an ascending numerical order, quick sort
+        Arrays.sort(B, Collections.reverseOrder()); //in a descending order, merge sort
+        //Arrays.sort(B, Comparator<? super T> c); //merge sort, stable, nlogN
 
         // list to array
         System.out.println("list to array:" + list.toArray());

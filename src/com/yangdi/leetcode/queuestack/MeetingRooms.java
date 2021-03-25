@@ -65,13 +65,15 @@ public class MeetingRooms {
         }
 
         // min heap
-        PriorityQueue<Integer> rooms = new PriorityQueue(intervals.length, (a, b) -> Integer.compare((int)a,(int)b));
-        //PriorityQueue<Integer> rooms = new PriorityQueue(intervals.length, (a, b) -> (int)a - (int)b);
+        PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> Integer.compare(a,b));
+        //PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> a - b);
+        //PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> (a < b) ? -1 : ((a == b) ? 0 : 1));
 
         //sort array by start time
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
         /*Arrays.sort(intervals, new Comparator<int[]>() {
-            public int compare( int[] a,  int[] b) {
+            @Override
+            public int compare(int[] a, int[] b) {
                 return a[0] - b[0];
             }
         });*/

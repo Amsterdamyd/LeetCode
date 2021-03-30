@@ -55,8 +55,8 @@ public class PointsToOrigin {
         Iterator<Integer> data = queue.iterator();
         while (data.hasNext()) {
             System.out.println(data.next());
-        }
-        System.out.println("------");
+        }*/
+        /*System.out.println("------");
         while(!queue.isEmpty()) {
             System.out.println(queue.poll());
         }*/

@@ -32,26 +32,26 @@ public class QuickSort {
     and all greater elements to the right. */
     public static int partition(int arr[], int low, int high) {
         int pivot = arr[high];
-        int i = low; // index of smaller element
+        int storeIndex = low; // index of smaller element
 
         for (int j = low; j < high; j++) {
             // If current element is smaller than the pivot
             if (arr[j] < pivot) {
                 // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
+                int temp = arr[storeIndex];
+                arr[storeIndex] = arr[j];
                 arr[j] = temp;
 
-                i++;
+                storeIndex++;
             }
         }
 
         // swap arr[i] and arr[high] (or pivot)
-        int temp = arr[i];
-        arr[i] = arr[high];
+        int temp = arr[storeIndex];
+        arr[storeIndex] = arr[high];
         arr[high] = temp;
 
-        return i;
+        return storeIndex;
     }
 
     public static void main(String[] args) {

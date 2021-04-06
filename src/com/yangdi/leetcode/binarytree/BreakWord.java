@@ -6,6 +6,10 @@ import java.util.*;
  * 139. Word Break
  */
 public class BreakWord {
+    /**
+     * recursive + memorization(by myself)
+     * scan the specific dictionary words
+     */
     public boolean wordBreak(String s, List<String> c) {
         if (s == null || s.length() == 0 ) {
             return false;
@@ -60,6 +64,7 @@ public class BreakWord {
 
     /**
      * recursion + memoization(LeetCode)
+     * scan the input string
      */
     public boolean wordBreak2(String s, List<String> wordDict) {
         return wordBreakMemo(s, new HashSet<>(wordDict), 0, new Boolean[s.length()]);
@@ -88,6 +93,57 @@ public class BreakWord {
         return false;
     }
 
+    /**
+     * Breadth first search(LeetCode)
+     */
+    public boolean wordBreak3(String s, List<String> wordDict) {
+        Set<String> wordDictSet = new HashSet<>(wordDict);
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[s.length()];
+
+        queue.add(0);
+
+        while (!queue.isEmpty()) {
+            int start = queue.remove();
+            if (visited[start]) {
+                continue;
+            }
+
+            for (int end = start + 1; end <= s.length(); end++) {
+                if (wordDictSet.contains(s.substring(start, end))) {
+                    queue.add(end);
+                    if (end == s.length()) {
+                        return true;
+                    }
+                }
+            }
+
+            visited[start] = true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Dynamic Programming(LeetCode)
+     */
+    public boolean wordBreak4(String s, List<String> wordDict) {
+        Set<String> wordDictSet = new HashSet<>(wordDict);
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] && wordDictSet.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return dp[s.length()];
+    }
+
     public static void main(String[] args) {
         String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaab";
         String[] items = new String[] {"a", "aa","aaa","aaaa","aaaaa",
@@ -102,7 +158,7 @@ public class BreakWord {
         List<String> c = Arrays.asList(items);
 
         BreakWord bw = new BreakWord();
-        if (bw.wordBreak(s, c)) {
+        if (bw.wordBreak3(s, c)) {
             System.out.println("true");
         } else {
             System.out.println("false");

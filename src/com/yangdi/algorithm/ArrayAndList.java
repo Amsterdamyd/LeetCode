@@ -71,6 +71,11 @@ public class ArrayAndList {
         int biggestKey = Collections.max(freq.keySet());
         int smallestValue = Collections.min(freq.values());
         int biggestValue = Collections.max(freq.values());
+
+        List<Integer> listKeys = new ArrayList<>(freq.keySet());
+        List<Integer> listValues = new ArrayList<>(freq.values());
+        System.out.println("listKeys= " + listKeys.toString());
+        System.out.println("listValues= " + listValues.toString());
     }
 
 }

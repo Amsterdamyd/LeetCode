@@ -3,12 +3,55 @@ package com.yangdi.leetcode.arraystring;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 54. Spiral Matrix
+ */
 public class SpiralMatrix {
 
     /**
+     * simple and decent way to solve the problem
+     * top-down: Horizontal boundary
+     * left-right: Vertical boundary
+     * direction: 0-Horizontal right, 1-Vertical down, 2-Horizontal right, 3-Vertical up
+     */
+    public List<Integer> spiralOrder4(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+
+        int top = 0, down = matrix.length-1;
+        int left = 0, right = matrix[0].length-1;
+        int direction = 0;
+
+        while (top <= down && left <= right) {
+            if (direction == 0) {
+                for (int i = left; i <= right; i++) {
+                    list.add(matrix[top][i]);
+                }
+                top++;
+            } else if (direction == 1) {
+                for (int i = top; i <= down; i++) {
+                    list.add(matrix[i][right]);
+                }
+                right--;
+            } else if (direction == 2) {
+                for (int i = right; i >= left; i--) {
+                    list.add(matrix[down][i]);
+                }
+                down--;
+            } else if (direction == 3) {
+                for (int i = down; i >= top; i--) {
+                    list.add(matrix[i][left]);
+                }
+                left++;
+            }
+
+            direction = (direction+1) % 4;
+        }
+
+        return list;
+    }
+
+    /**
      * By Di Yang
-     * @param matrix
-     * @return
      */
     public List<Integer> spiralOrder(int[][] matrix) {
         if (matrix == null || matrix.length == 0) {
@@ -51,10 +94,8 @@ public class SpiralMatrix {
 
     /**
      * By LeetCode
-     * @param matrix
-     * @return
      */
-    public List<Integer> spiralOrder1(int[][] matrix) {
+    public List<Integer> spiralOrder2(int[][] matrix) {
         List<Integer> ans = new ArrayList<>();
         if (matrix.length == 0)
             return ans;
@@ -85,10 +126,8 @@ public class SpiralMatrix {
 
     /**
      * By LeetCode
-     * @param matrix
-     * @return
      */
-    public List < Integer > spiralOrder2(int[][] matrix) {
+    public List < Integer > spiralOrder3(int[][] matrix) {
         List<Integer> ans = new ArrayList();
         if (matrix.length == 0)
             return ans;
@@ -126,32 +165,10 @@ public class SpiralMatrix {
         //int[][] num = {{1, 2, 3,4,5},{6, 7, 8,9,10}};
 
         SpiralMatrix matrix = new SpiralMatrix();
-        List<Integer> list = matrix.spiralOrder1(num);
+        List<Integer> list = matrix.spiralOrder2(num);
 
         for (int x : list) {
             System.out.print(x + " ");
         }
-
-        /*
-        int[] items = new int[5];
-        for(int x : items) {
-            System.out.print(x + " ");
-        }
-
-        boolean[] items2 = new boolean[3];
-        for(Boolean x : items2) {
-            if (x) {
-                System.out.print("true ");
-            } else {
-                System.out.print("false ");
-            }
-        }
-
-        int y = 0;
-        for (int x = 0; y < 0; x++) {
-            System.out.println("y=" + y);
-            y = 1;
-        }
-        System.out.println("final y=" + y); */
     }
 }

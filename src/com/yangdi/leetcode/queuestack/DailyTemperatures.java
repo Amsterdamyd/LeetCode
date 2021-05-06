@@ -4,11 +4,14 @@ import java.util.Stack;
 
 /**
  * 739. Daily Temperatures
- * Find the nearest bigger one
+ * Find the nearest right hand bigger number
  */
 public class DailyTemperatures {
     /**
      * stack
+     * traverse the array in a reverse way
+     * The number in array is bigger than the top number in stack, then pop the stack top one
+     * Always keep the stack in an ascending order
      */
     public int[] dailyTemperatures(int[] T) {
         int[] numbers = new int[T.length];

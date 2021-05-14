@@ -70,20 +70,23 @@ public class GenerateParentheses {
         return ans;
     }
 
-    public void backtrack(List<String> ans, StringBuilder cur, int open, int close, int max) {
+    // record the node from root to leaf
+    public void backtrack(List<String> ans, StringBuilder cur, int left, int right, int max) {
         if (cur.length() == max * 2) {
             ans.add(cur.toString());
             return;
         }
 
-        if (open < max) {
+        // add left child
+        if (left < max) {
             cur.append("(");
-            backtrack(ans, cur, open+1, close, max);
+            backtrack(ans, cur, left+1, right, max);
             cur.deleteCharAt(cur.length() - 1);
         }
-        if (close < open) {
+        // add right child
+        if (right < left) {
             cur.append(")");
-            backtrack(ans, cur, open, close+1, max);
+            backtrack(ans, cur, left, right+1, max);
             cur.deleteCharAt(cur.length() - 1);
         }
     }

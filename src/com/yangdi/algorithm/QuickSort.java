@@ -3,17 +3,15 @@ package com.yangdi.algorithm;
 import java.time.ZonedDateTime;
 
 public class QuickSort {
-
     /**
-     * The main function that implements QuickSort().
+     * The main function implements QuickSort().
      * Tree Traversal - Preorder(root, left, right)
+     *
      * Time complexity: O(nlogn)
      * Space complexity: O(1)
+     *
      * Is QuickSort stable? No
      * Is QuickSort in place? Yes
-     * @param arr Array to be sorted
-     * @param low Starting index
-     * @param high Ending index
      */
     public static void quickSort(int arr[], int low, int high) {
         if (low < high) {
@@ -34,19 +32,19 @@ public class QuickSort {
         int pivot = arr[high];
         int storeIndex = low; // index of smaller element
 
-        for (int j = low; j < high; j++) {
+        for (int i = low; i < high; i++) {
             // If current element is smaller than the pivot
-            if (arr[j] < pivot) {
-                // swap arr[i] and arr[j]
+            if (arr[i] < pivot) {
+                // swap arr[i] and arr[storeIndex]
                 int temp = arr[storeIndex];
-                arr[storeIndex] = arr[j];
-                arr[j] = temp;
+                arr[storeIndex] = arr[i];
+                arr[i] = temp;
 
                 storeIndex++;
             }
         }
 
-        // swap arr[i] and arr[high] (or pivot)
+        // swap arr[storeIndex] and arr[high] (or pivot)
         int temp = arr[storeIndex];
         arr[storeIndex] = arr[high];
         arr[high] = temp;

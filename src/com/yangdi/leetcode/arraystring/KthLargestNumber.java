@@ -1,6 +1,7 @@
 package com.yangdi.leetcode.arraystring;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Random;
 
@@ -24,7 +25,7 @@ public class KthLargestNumber {
      * Time complexity: O(nlogk)
      */
     public int findKthLargest2(int[] nums, int k) {
-        PriorityQueue<Integer> data = new PriorityQueue<>(k, (a, b)->Integer.compare(a,b));
+        PriorityQueue<Integer> data = new PriorityQueue<>(k, Comparator.comparingInt(a -> a));
 
         for (int i = 0; i < nums.length; i++) {
             if (data.size() < k) {
@@ -46,7 +47,7 @@ public class KthLargestNumber {
      * quick select
      * Time complexity: O(n)
      */
-    int [] nums;
+    int[] nums;
     public int findKthLargest3(int[] nums, int k) {
         this.nums = nums;
         int size = nums.length;

@@ -25,7 +25,7 @@ public class ReorganizeString {
             char first = P.poll();
             H.put(first, H.get(first)-1);
 
-            char second=P.poll();
+            char second = P.poll();
             H.put(second,H.get(second)-1);
 
             ans += "" + first + "" + second;

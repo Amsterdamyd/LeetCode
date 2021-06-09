@@ -8,7 +8,7 @@ public class QuickSort {
      * Tree Traversal - Preorder(root, left, right)
      *
      * Time complexity: O(nlogn)
-     * Space complexity: O(1)
+     * Space complexity: average case: O(log n); the most worst case: O(n) (system stack)
      *
      * Is QuickSort stable? No
      * Is QuickSort in place? Yes

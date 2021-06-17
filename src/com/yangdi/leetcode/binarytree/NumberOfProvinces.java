@@ -20,7 +20,7 @@ public class NumberOfProvinces {
 
         for (int i = 0; i < len; i++) {
             if (!visited[i]) {
-                helper(isConnected, visited, i);
+                dfs(isConnected, visited, i);
                 number++;
             }
         }
@@ -28,11 +28,11 @@ public class NumberOfProvinces {
         return number;
     }
 
-    void helper(int[][] isConnected, boolean[] visited, int i) {
+    void dfs(int[][] isConnected, boolean[] visited, int i) {
         for (int j = 0; j < isConnected.length; j++) {
             if (!visited[j] && isConnected[i][j] == 1) {
                 visited[j] = true;
-                helper(isConnected, visited, j);
+                dfs(isConnected, visited, j);
             }
         }
     }

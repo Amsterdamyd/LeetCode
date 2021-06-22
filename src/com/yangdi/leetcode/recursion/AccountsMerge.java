@@ -11,6 +11,9 @@ public class AccountsMerge {
      * Undirected graph connection problem
      * Create graph including all vertices and edges first
      * DFS search every vertex connected with current vertex
+     *
+     * Time Complexity: O(AlogA) (A = ∑ai)
+     * Space Complexity: O(A)
      */
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         List<List<String>> ans = new ArrayList();

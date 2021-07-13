@@ -1,30 +1,32 @@
 package com.yangdi.leetcode.linkedlist;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
+/**
+ * 142. Linked List Cycle II
+ */
 public class DetectCycle {
 
     /**
+     * HashSet
      * Time complexity : O(n)
      * Space complexity : O(n)
-     * @param head
-     * @return
      */
     public SinglyListNode detectCycle(SinglyListNode head) {
         if (head == null) {
             return null;
         }
 
-        int index = 0;
-        Map<SinglyListNode, Integer> nodeMap = new HashMap<>();
+        Set<SinglyListNode> nodeMap = new HashSet<>();
 
         while (head.next != null) {
-            if (nodeMap.containsKey(head)) {
-                System.out.println("The " + nodeMap.get(head) + "th node is the one wanted.");
+            if (nodeMap.contains(head)) {
                 return head;
             } else {
-                nodeMap.put(head, index++);
+                nodeMap.add(head);
                 head = head.next;
             }
         }
@@ -33,13 +35,11 @@ public class DetectCycle {
     }
 
     /**
-     * By LeetCode
+     * Floyd's Tortoise and Hare
+     * (F + C + h) / 2v = (F + h) / v  --> F = C - h --> Which happens below.
      * Time complexity : O(n)
      * Space complexity : O(1)
-     * @param head
-     * @return
      */
-
     public SinglyListNode detectCycle2(SinglyListNode head) {
         if (head == null) {
             return null;
@@ -48,8 +48,18 @@ public class DetectCycle {
         // If there is a cycle, the fast/slow pointers will intersect at some
         // node. Otherwise, there is no cycle, so we cannot find an entrance to
         // a cycle.
-        SinglyListNode intersect = getIntersect(head);
-        if (intersect == null) {
+        SinglyListNode tortoise = head;
+        SinglyListNode hare = head;
+        // hare runs at a speed two times as tortoise runs
+        while (hare != null && hare.next != null) {
+            tortoise = tortoise.next;
+            hare = hare.next.next;
+            if (tortoise == hare) {
+                break;
+            }
+        }
+        //don't find intersection
+        if (hare == null || hare.next == null) {
             return null;
         }
 
@@ -59,14 +69,13 @@ public class DetectCycle {
         // To find the entrance to the cycle, we have two pointers traverse at
         // the same speed -- one from the front of the list, and the other from
         // the point of intersection.
-        SinglyListNode ptr1 = head;
-        SinglyListNode ptr2 = intersect;
-        while (ptr1 != ptr2) {
-            ptr1 = ptr1.next;
-            ptr2 = ptr2.next;
+        tortoise = head;
+        while (tortoise != hare) {
+            tortoise = tortoise.next;
+            hare = hare.next;
         }
 
-        return ptr1;
+        return hare;
     }
 
     private SinglyListNode getIntersect(SinglyListNode head) {

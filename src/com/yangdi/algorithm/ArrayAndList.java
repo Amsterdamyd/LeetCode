@@ -31,7 +31,9 @@ public class ArrayAndList {
         // list to array
         System.out.println("list to array:" + list.toArray());
 
-        // array to list
+        // array to list(Returns a fixed-size list backed by the specified array.)
+        //There is no shortcut for converting from int[] to List<Integer>
+        // as Arrays.asList does not deal with boxing and will just create a List<int[]>
         System.out.println("array to list:" + Arrays.asList(A));
 
         // how to print array in a simple way

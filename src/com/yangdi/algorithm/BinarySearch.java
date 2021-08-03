@@ -13,7 +13,7 @@ public class BinarySearch {
             return -1;
         }
 
-        int pivot = begin + (end - begin) / 2;
+        int pivot = (begin + end) / 2;
 
         if (nums[pivot] > target) {
             return binarySearch(target, nums, begin, pivot-1);

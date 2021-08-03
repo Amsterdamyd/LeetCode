@@ -59,10 +59,12 @@ public class DistanceK {
     }
 
     public void dfs(TreeNode node, TreeNode par) {
-        if (node != null) {
-            parent.put(node, par);
-            dfs(node.left, node);
-            dfs(node.right, node);
+        if (node == null) {
+            return;
         }
+
+        parent.put(node, par);
+        dfs(node.left, node);
+        dfs(node.right, node);
     }
 }

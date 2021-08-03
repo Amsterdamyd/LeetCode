@@ -1,16 +1,5 @@
 package com.yangdi.leetcode.linkedlist;
 
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
 public class DetermineCycle {
     public boolean hasCycle(SinglyListNode head) {
         if (head == null) {
@@ -34,8 +23,6 @@ public class DetermineCycle {
 
     /**
      * By LeetCode
-     * @param head
-     * @return
      */
     public boolean hasCycle2(SinglyListNode head) {
         if (head == null || head.next == null) {
@@ -52,6 +39,7 @@ public class DetermineCycle {
             slow = slow.next; // move slow pointer one step each time
             fast = fast.next.next; // move fast pointer two steps each time
         }
+
         return true;
     }
 }

@@ -1,5 +1,8 @@
 package com.yangdi.leetcode.linkedlist;
 
+/**
+ * merge two sorted lists
+ */
 public class MergeLists {
 
     public SinglyListNode mergeTwoLists(SinglyListNode l1, SinglyListNode l2) {

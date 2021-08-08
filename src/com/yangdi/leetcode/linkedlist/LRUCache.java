@@ -6,21 +6,6 @@ import java.util.Map;
 /**
  * 146. LRU Cache
  */
-class ListNode {
-    int key;
-    int val;
-    ListNode prev;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int key, int val) {
-        this.key = key;
-        this.val = val;
-    }
-}
-
 public class LRUCache {
     int capacity;
     int size;

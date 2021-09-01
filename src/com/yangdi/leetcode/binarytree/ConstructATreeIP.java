@@ -35,7 +35,7 @@ public class ConstructATreeIP {
         int[] leftPostorder = Arrays.copyOfRange(postorder, 0, pivot);
         int[] rightPostorder = Arrays.copyOfRange(postorder, pivot, postorder.length - 1);
 
-        root.left  = buildTree(leftInorder, leftPostorder);
+        root.left = buildTree(leftInorder, leftPostorder);
         root.right = buildTree(rightInorder, rightPostorder);
         return root;
     }

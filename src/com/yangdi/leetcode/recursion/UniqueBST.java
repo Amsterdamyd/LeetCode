@@ -145,11 +145,10 @@ public class UniqueBST {
     }
 
 
-
     public static void main(String[] args) {
         UniqueBST unique = new UniqueBST();
         List<TreeNode> list = unique.generateTrees2(4);
-        System.out.println("size = "+list.size());
+        System.out.println("size = " + list.size());
 
         for (TreeNode rootNode : list) {
             PreorderTraversal traversal = new PreorderTraversal();

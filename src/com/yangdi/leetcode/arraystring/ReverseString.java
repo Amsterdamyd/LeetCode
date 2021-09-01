@@ -20,7 +20,7 @@ public class ReverseString {
     }
 
     public static void main(String[] arg) {
-        char[] s = {'h','e','l','l','o','w'};
+        char[] s = {'h', 'e', 'l', 'l', 'o', 'w'};
         //char[] s = {"h","e","l","l","o"};
         ReverseString reverseString = new ReverseString();
         reverseString.reverse(s);

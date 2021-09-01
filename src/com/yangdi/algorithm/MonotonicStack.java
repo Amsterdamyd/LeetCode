@@ -29,7 +29,7 @@ public class MonotonicStack {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2,1,2,4,3};
+        int[] nums = {2, 1, 2, 4, 3};
         int[] result = nextGreaterElement(nums);
         System.out.println(Arrays.toString(result));
     }

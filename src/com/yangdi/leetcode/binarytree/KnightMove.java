@@ -11,17 +11,18 @@ public class KnightMove {
     /**
      * time exceed
      */
-    int[][] directions = {{1,2},{2,1},{2,-1},{1,-2},{-1,-2},{-2,-1},{-2,1},{-1,2}};
+    int[][] directions = {{1, 2}, {2, 1}, {2, -1}, {1, -2}, {-1, -2}, {-2, -1}, {-2, 1}, {-1, 2}};
+
     public int minKnightMoves(int x, int y) {
         int number = 0, i = 0, j = 0;
         if (i < x && j < y) { // face north east
-            number = Math.min(helper(x,y,i,j,directions[0]), helper(x,y,i,j,directions[1]));
+            number = Math.min(helper(x, y, i, j, directions[0]), helper(x, y, i, j, directions[1]));
         } else if (i < x && j > y) { // face south east
-            number = Math.min(helper(x,y,i,j,directions[2]), helper(x,y,i,j,directions[3]));
+            number = Math.min(helper(x, y, i, j, directions[2]), helper(x, y, i, j, directions[3]));
         } else if (i > x && j > y) { // face south west
-            number = Math.min(helper(x,y,i,j,directions[4]), helper(x,y,i,j,directions[5]));
+            number = Math.min(helper(x, y, i, j, directions[4]), helper(x, y, i, j, directions[5]));
         } else { // face north west
-            number = Math.min(helper(x,y,i,j,directions[6]), helper(x,y,i,j,directions[7]));
+            number = Math.min(helper(x, y, i, j, directions[6]), helper(x, y, i, j, directions[7]));
         }
 
         return number;
@@ -48,13 +49,13 @@ public class KnightMove {
         j += direction[1];
 
         if (i < x && j < y) { // face north east
-            return Math.min(helper(x,y,i,j,directions[0]), helper(x,y,i,j,directions[1])) + 1;
+            return Math.min(helper(x, y, i, j, directions[0]), helper(x, y, i, j, directions[1])) + 1;
         } else if (i < x && j > y) { // face south east
-            return Math.min(helper(x,y,i,j,directions[2]), helper(x,y,i,j,directions[3])) + 1;
+            return Math.min(helper(x, y, i, j, directions[2]), helper(x, y, i, j, directions[3])) + 1;
         } else if (i > x && j > y) { // face south west
-            return Math.min(helper(x,y,i,j,directions[4]), helper(x,y,i,j,directions[5])) + 1;
+            return Math.min(helper(x, y, i, j, directions[4]), helper(x, y, i, j, directions[5])) + 1;
         } else { // face north west
-            return Math.min(helper(x,y,i,j,directions[6]), helper(x,y,i,j,directions[7])) + 1;
+            return Math.min(helper(x, y, i, j, directions[6]), helper(x, y, i, j, directions[7])) + 1;
         }
     }
 
@@ -67,6 +68,7 @@ public class KnightMove {
      * by leetcode discussions
      */
     static Map<String, Integer> map = new HashMap<>();
+
     static {
         map.put("0,0", 1);
         map.put("0,1", 3);
@@ -93,7 +95,7 @@ public class KnightMove {
             return map.get(key);
         }
 
-        int moves = Math.min(minKnightMoves2(x-1, y-2), minKnightMoves2(x-2, y-1)) + 1;
+        int moves = Math.min(minKnightMoves2(x - 1, y - 2), minKnightMoves2(x - 2, y - 1)) + 1;
         map.put(key, moves);
 
         return moves;

@@ -24,13 +24,13 @@ public class Permutations {
 
         for (int i = first; i < len; i++) {
             Collections.swap(numsList, first, i);
-            backtrack(len, numsList, output, first+1);
+            backtrack(len, numsList, output, first + 1);
             Collections.swap(numsList, first, i);
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5};
+        int[] nums = {1, 2, 3, 4, 5};
         Permutations compute = new Permutations();
         List<List<Integer>> list = compute.permute(nums);
 

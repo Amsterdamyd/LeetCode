@@ -54,7 +54,7 @@ public class PopulatePointers {
             int size = Q.size();
 
             // Iterate over all the nodes on the current level
-            for(int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 // Pop a node from the front of the queue
                 TreeNodePro node = Q.poll();
                 if (i < size - 1) {

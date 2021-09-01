@@ -20,7 +20,7 @@ public class LicenseKeyFormatting {
         String returnStr = "";
         int endIndex = 0;
 
-        for (int i = 0 ; i < groupNumber; i++) {
+        for (int i = 0; i < groupNumber; i++) {
             if (i == groupNumber - 1) {
                 returnStr += noDashStr.substring(endIndex);
             } else if (i == 0) {

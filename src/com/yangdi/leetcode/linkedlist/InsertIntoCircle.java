@@ -23,7 +23,7 @@ public class InsertIntoCircle {
             int nextVal = currNode.next.value;
 
             if (currVal < nextVal && (insertVal >= currVal && insertVal <= nextVal)
-                || currVal > nextVal && (insertVal >= currVal || insertVal <= nextVal)) {
+                    || currVal > nextVal && (insertVal >= currVal || insertVal <= nextVal)) {
                 insertNode.next = currNode.next;
                 currNode.next = insertNode;
                 return head;

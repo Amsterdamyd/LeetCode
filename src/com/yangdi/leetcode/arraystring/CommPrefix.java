@@ -33,7 +33,7 @@ public class CommPrefix {
 
         if (list != null && list.size() > 0) {
             StringBuilder builder = new StringBuilder();
-            for (Character i: list) {
+            for (Character i : list) {
                 builder.append(i);
             }
 

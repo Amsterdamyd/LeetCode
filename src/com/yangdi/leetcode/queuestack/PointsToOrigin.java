@@ -13,10 +13,10 @@ public class PointsToOrigin {
     public int[][] kClosest(int[][] points, int k) {
         int len = points.length;
         int[][] distances = new int[len][2];
-        PriorityQueue<int[]> queue = new PriorityQueue<>(len, (a, b) -> Integer.compare(a[0],b[0]));
+        PriorityQueue<int[]> queue = new PriorityQueue<>(len, (a, b) -> Integer.compare(a[0], b[0]));
 
         for (int i = 0; i < len; i++) {
-            distances[i][0] = points[i][0]*points[i][0] + points[i][1]*points[i][1];
+            distances[i][0] = points[i][0] * points[i][0] + points[i][1] * points[i][1];
             distances[i][1] = i;
             queue.add(distances[i]);
         }
@@ -32,7 +32,7 @@ public class PointsToOrigin {
     }
 
     public static void main(String[] args) {
-        int[][] points = {{3,3},{5,-1},{-2,4}};
+        int[][] points = {{3, 3}, {5, -1}, {-2, 4}};
         int k = 2;
 
         PointsToOrigin origin = new PointsToOrigin();
@@ -40,7 +40,7 @@ public class PointsToOrigin {
 
         for (int i = 0; i < results.length; i++) {
             int[] a = results[i];
-            System.out.println(a[0] +"," + a[1]);
+            System.out.println(a[0] + "," + a[1]);
         }
 
         /*PriorityQueue<Integer> queue = new PriorityQueue<>(5, (a, b) -> Integer.compare(a,b));

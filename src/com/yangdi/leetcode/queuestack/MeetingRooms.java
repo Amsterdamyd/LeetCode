@@ -9,10 +9,10 @@ public class MeetingRooms {
      * determine if a person could attend all meetings.
      */
     public boolean canAttendMeetings(int[][] intervals) {
-        Arrays.sort(intervals, (a,b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
         for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i][0] < intervals[i-1][1]) {
+            if (intervals[i][0] < intervals[i - 1][1]) {
                 return false;
             }
         }
@@ -65,7 +65,7 @@ public class MeetingRooms {
         }
 
         // min heap
-        PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> Integer.compare(a,b));
+        PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> Integer.compare(a, b));
         //PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> a - b);
         //PriorityQueue<Integer> rooms = new PriorityQueue<>(intervals.length, (a, b) -> (a < b) ? -1 : ((a == b) ? 0 : 1));
 

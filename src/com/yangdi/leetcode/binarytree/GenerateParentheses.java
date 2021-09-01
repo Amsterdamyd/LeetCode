@@ -12,7 +12,7 @@ public class GenerateParentheses {
         Node left;
         Node right;
 
-        public Node (String parenthese) {
+        public Node(String parenthese) {
             this.parenthese = parenthese;
         }
     }
@@ -34,11 +34,11 @@ public class GenerateParentheses {
 
         if (leftNum < total) {
             Node leftNode = new Node("(");
-            root.left = createTree(leftNode, total, leftNum+1, rightNum);
+            root.left = createTree(leftNode, total, leftNum + 1, rightNum);
         }
         if (rightNum < leftNum) {
             Node rightNode = new Node(")");
-            root.right = createTree(rightNode, total, leftNum, rightNum+1);
+            root.right = createTree(rightNode, total, leftNum, rightNum + 1);
         }
         return root;
     }
@@ -80,13 +80,13 @@ public class GenerateParentheses {
         // add left child
         if (left < max) {
             cur.append("(");
-            backtrack(ans, cur, left+1, right, max);
+            backtrack(ans, cur, left + 1, right, max);
             cur.deleteCharAt(cur.length() - 1);
         }
         // add right child
         if (right < left) {
             cur.append(")");
-            backtrack(ans, cur, left, right+1, max);
+            backtrack(ans, cur, left, right + 1, max);
             cur.deleteCharAt(cur.length() - 1);
         }
     }

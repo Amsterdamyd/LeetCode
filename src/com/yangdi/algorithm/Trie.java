@@ -8,7 +8,7 @@ public class Trie {
     /**
      * Definition of Trie node
      */
-    private class TrieNode {
+    public class TrieNode {
         Map<Character, TrieNode> children;
         boolean endOfWord;
 
@@ -19,6 +19,7 @@ public class Trie {
     }
 
     private final TrieNode root;
+
     public Trie() {
         root = new TrieNode();
     }
@@ -86,7 +87,7 @@ public class Trie {
             current.children.put(ch, node);
         }
 
-        insertRecursive(node, word, index+1);
+        insertRecursive(node, word, index + 1);
     }
 
     /**
@@ -112,7 +113,7 @@ public class Trie {
             return false;
         }
 
-        boolean shouldDeleteCurrentNode = delete(node, word, index+1);
+        boolean shouldDeleteCurrentNode = delete(node, word, index + 1);
 
         if (shouldDeleteCurrentNode) {
             current.children.remove(ch);

@@ -20,7 +20,7 @@ public class LRUCache2 {
         head.next = node;
     }
 
-    private void removeNode(ListNode node){
+    private void removeNode(ListNode node) {
         /**
          * Remove an existing node from the linked list.
          */
@@ -31,7 +31,7 @@ public class LRUCache2 {
         next.prev = prev;
     }
 
-    private void moveToHead(ListNode node){
+    private void moveToHead(ListNode node) {
         /**
          * Move certain node in between to the head.
          */
@@ -79,7 +79,7 @@ public class LRUCache2 {
     public void put(int key, int value) {
         ListNode node = cache.get(key);
 
-        if(node == null) {
+        if (node == null) {
             ListNode newNode = new ListNode(key, value);
 
             // add it to the map
@@ -88,7 +88,7 @@ public class LRUCache2 {
             addNode(newNode);
             ++size;
 
-            if(size > capacity) {
+            if (size > capacity) {
                 // pop the tail
                 ListNode tail = popTail();
                 cache.remove(tail.key);

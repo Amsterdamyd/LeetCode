@@ -35,7 +35,7 @@ public class UnivalSubtrees {
             } else {
                 return Integer.MAX_VALUE;
             }
-        } else  {
+        } else {
             if (leftVal == rightVal && leftVal == root.val) {
                 sum++;
                 return root.val;

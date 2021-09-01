@@ -7,6 +7,7 @@ public class MaxDepth {
      * Pre order
      */
     private int MaxDepth = 0;
+
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;

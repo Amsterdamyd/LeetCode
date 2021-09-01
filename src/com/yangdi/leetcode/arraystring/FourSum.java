@@ -103,23 +103,23 @@ public class FourSum {
         List<List<Integer>> total = new ArrayList<>();
         int len = nums.length;
 
-        for (int i = 0; i < len-3; i++) {
-            if (i > 0 && nums[i] == nums[i-1]) {
+        for (int i = 0; i < len - 3; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
 
-            for (int j = i+1; j < len-2; j++) {
-                if (j > i+1 && nums[j] == nums[j-1]) {
+            for (int j = i + 1; j < len - 2; j++) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
 
                 int T = target - nums[i] - nums[j];
-                int m = j+1, n = len-1;
+                int m = j + 1, n = len - 1;
 
                 while (m < n) {
-                    if (nums[m] + nums[n] < T || (m > j+1 && nums[m] == nums[m-1])) {
+                    if (nums[m] + nums[n] < T || (m > j + 1 && nums[m] == nums[m - 1])) {
                         m++;
-                    } else if (nums[m] + nums[n] > T || (n < len-1 && nums[n] == nums[n+1])) {
+                    } else if (nums[m] + nums[n] > T || (n < len - 1 && nums[n] == nums[n + 1])) {
                         n--;
                     } else {
                         List<Integer> list = new ArrayList<>();

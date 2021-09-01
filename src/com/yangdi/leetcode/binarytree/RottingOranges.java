@@ -14,6 +14,7 @@ public class RottingOranges {
     int minute = -1;
     int freshOranges = 0;
     Queue<int[]> queue = new ArrayDeque<>();
+
     public int orangesRotting(int[][] grid) {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
@@ -36,31 +37,31 @@ public class RottingOranges {
 
     void bfs(int[][] grid) {
         while (!queue.isEmpty()) {
-             int size = queue.size();
+            int size = queue.size();
 
             for (int k = 0; k < size; k++) {
                 int[] current = queue.poll();
                 int i = current[0];
                 int j = current[1];
 
-                if (i-1 >=0 && grid[i-1][j] == 1) {
-                    queue.add(new int[]{i-1, j});
-                    grid[i-1][j] = 2;
+                if (i - 1 >= 0 && grid[i - 1][j] == 1) {
+                    queue.add(new int[]{i - 1, j});
+                    grid[i - 1][j] = 2;
                     freshOranges--;
                 }
-                if (j+1 < grid[0].length && grid[i][j+1] == 1) {
-                    queue.add(new int[]{i, j+1});
-                    grid[i][j+1] = 2;
+                if (j + 1 < grid[0].length && grid[i][j + 1] == 1) {
+                    queue.add(new int[]{i, j + 1});
+                    grid[i][j + 1] = 2;
                     freshOranges--;
                 }
-                if (i+1 < grid.length && grid[i+1][j] == 1) {
-                    queue.add(new int[]{i+1, j});
-                    grid[i+1][j] = 2;
+                if (i + 1 < grid.length && grid[i + 1][j] == 1) {
+                    queue.add(new int[]{i + 1, j});
+                    grid[i + 1][j] = 2;
                     freshOranges--;
                 }
-                if (j-1 >= 0 && grid[i][j-1] == 1) {
-                    queue.add(new int[]{i, j-1});
-                    grid[i][j-1] = 2;
+                if (j - 1 >= 0 && grid[i][j - 1] == 1) {
+                    queue.add(new int[]{i, j - 1});
+                    grid[i][j - 1] = 2;
                     freshOranges--;
                 }
             }
@@ -95,7 +96,7 @@ public class RottingOranges {
     }
 
     public boolean runRottingProcess(int timestamp, int[][] grid, int ROWS, int COLS) {
-        int[][] directions = { {-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         // flag to indicate if the rotting process should be continued
         boolean toBeContinued = false;
 
@@ -123,7 +124,7 @@ public class RottingOranges {
 
     public static void main(String[] args) {
         //int[][] grid = new int[][]{{2,1,1},{1,1,0},{0,1,1}};
-        int[][] grid = new int[][]{{2,1,2,0},{1,1,0,1},{0,1,1,0},{2,0,0,1},{1,1,1,1}};
+        int[][] grid = new int[][]{{2, 1, 2, 0}, {1, 1, 0, 1}, {0, 1, 1, 0}, {2, 0, 0, 1}, {1, 1, 1, 1}};
 
         RottingOranges rot = new RottingOranges();
         int result = rot.orangesRotting(grid);

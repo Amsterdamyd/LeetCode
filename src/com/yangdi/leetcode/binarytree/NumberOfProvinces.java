@@ -47,7 +47,7 @@ public class NumberOfProvinces {
         Arrays.fill(parent, -1);
 
         for (int i = 0; i < M.length; i++) {
-            for (int j = i+1; j < M.length; j++) {
+            for (int j = i + 1; j < M.length; j++) {
                 if (M[i][j] == 1) {
                     union(parent, i, j);
                 }

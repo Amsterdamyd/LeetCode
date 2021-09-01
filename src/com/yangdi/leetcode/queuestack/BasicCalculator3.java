@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * 772. Basic Calculator III
- *
+ * <p>
  * s consists of digits, '+', '-', '*', '/', '(', and ')'.
  * example: s = "(2+6*3+5-(3*14/7+2)*5)+3"
  */
@@ -21,14 +21,14 @@ public class BasicCalculator3 {
             char ch = s.charAt(i++);
 
             if (Character.isDigit(ch)) {
-                number = number*10 + (ch-'0');
+                number = number * 10 + (ch - '0');
             }
 
             if (ch == '(') {
                 number = calculate(s);
             }
 
-            if (i==len || ch=='+' || ch=='-' || ch=='*' ||ch=='/' || ch==')') {
+            if (i == len || ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == ')') {
                 if (operation == '+') {
                     stack.push(number);
                 } else if (operation == '-') {

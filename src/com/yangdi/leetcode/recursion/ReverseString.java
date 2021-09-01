@@ -10,7 +10,7 @@ public class ReverseString {
     }
 
     void helper(char[] s, int index, int size) {
-        if (index > size/2) {
+        if (index > size / 2) {
             return;
         }
 

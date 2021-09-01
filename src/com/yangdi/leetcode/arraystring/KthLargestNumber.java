@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 import java.util.Random;
 
 /**
- *  215. Kth Largest Element in an Array
+ * 215. Kth Largest Element in an Array
  */
 public class KthLargestNumber {
 
@@ -48,6 +48,7 @@ public class KthLargestNumber {
      * Time complexity: O(n)
      */
     int[] nums;
+
     public int findKthLargest3(int[] nums, int k) {
         this.nums = nums;
         int size = nums.length;

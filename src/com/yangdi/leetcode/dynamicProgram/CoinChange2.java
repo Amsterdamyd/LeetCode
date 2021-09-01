@@ -49,7 +49,7 @@ public class CoinChange2 {
 
                 List<List<Integer>> remindTotal = map.get(remind);
                 List<List<Integer>> newTotal = new ArrayList<>();
-                for (int i = 0 ; i < remindTotal.size(); i++) {
+                for (int i = 0; i < remindTotal.size(); i++) {
                     List<Integer> remindList = remindTotal.get(i);
                     List<Integer> newList = new ArrayList<>();
                     for (int j = 0; j < remindList.size(); j++) {
@@ -72,7 +72,7 @@ public class CoinChange2 {
 
     public static void main(String[] args) {
         int amount = 11;
-        int[] coins = {2,5,10};
+        int[] coins = {2, 5, 10};
         CoinChange2 change2 = new CoinChange2();
         List<List<Integer>> total = change2.change2(amount, coins);
 

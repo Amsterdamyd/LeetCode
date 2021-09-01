@@ -60,7 +60,9 @@ public class DesignHashMap {
     private int key_space;
     private List<Bucket> hash_table;
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public DesignHashMap() {
         this.key_space = 2069;
         this.hash_table = new ArrayList<Bucket>();
@@ -69,7 +71,9 @@ public class DesignHashMap {
         }
     }
 
-    /** value will always be non-negative. */
+    /**
+     * value will always be non-negative.
+     */
     public void put(int key, int value) {
         int hash_key = key % this.key_space;
         this.hash_table.get(hash_key).update(key, value);
@@ -84,7 +88,9 @@ public class DesignHashMap {
         return this.hash_table.get(hash_key).get(key);
     }
 
-    /** Removes the mapping of the specified value key if this map contains a mapping for the key */
+    /**
+     * Removes the mapping of the specified value key if this map contains a mapping for the key
+     */
     public void remove(int key) {
         int hash_key = key % this.key_space;
         this.hash_table.get(hash_key).remove(key);

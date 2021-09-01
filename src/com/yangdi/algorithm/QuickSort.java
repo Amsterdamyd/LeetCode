@@ -6,10 +6,10 @@ public class QuickSort {
     /**
      * The main function implements QuickSort().
      * Tree Traversal - Preorder(root, left, right)
-     *
+     * <p>
      * Time complexity: O(nlogn)
      * Space complexity: average case: O(log n); the most worst case: O(n) (system stack)
-     *
+     * <p>
      * Is QuickSort stable? No
      * Is QuickSort in place? Yes
      */
@@ -19,8 +19,8 @@ public class QuickSort {
             int pi = partition(arr, low, high);
 
             //Recursively sort elements before partition and after partition.
-            quickSort(arr, low, pi-1);
-            quickSort(arr, pi+1, high);
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
         }
     }
 
@@ -57,7 +57,9 @@ public class QuickSort {
         int[] nums = data.getIntData("UnorderedData");
 
         System.out.println(ZonedDateTime.now());
-        quickSort(nums, 0, nums.length - 1);
+        //quickSort(nums, 0, nums.length - 1);
+        MergeSort meSort = new MergeSort();
+        meSort.mergeSort(nums, 0, nums.length - 1);
         System.out.println(ZonedDateTime.now());
 
         for (int i : nums) {

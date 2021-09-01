@@ -6,7 +6,7 @@ import java.util.Map;
 public class OddEvenJump {
 
     public int oddEvenJumps(int[] A) {
-        JumpNodeResult[] results= new JumpNodeResult[A.length];
+        JumpNodeResult[] results = new JumpNodeResult[A.length];
 
         // dynamic programming (We get the result of i by the results of ones behind it)
         for (int i = A.length - 1; i > -1; i--) {
@@ -83,7 +83,7 @@ public class OddEvenJump {
                 }
             }
             // even jump
-            if(A[currentIndex] >= A[j]) {
+            if (A[currentIndex] >= A[j]) {
                 if (largestValue == -1) {
                     largestValue = A[j];
                     largestValueIndex = j;
@@ -108,7 +108,7 @@ public class OddEvenJump {
     public static void main(String[] args) {
         //int[] A = {10,13,12,14,15};  //2
         //int[] A = {2,3,1,1,4};  //3
-        int[] A = {5,1,3,4,2};  //3
+        int[] A = {5, 1, 3, 4, 2};  //3
         OddEvenJump3 jump = new OddEvenJump3();
         System.out.println(jump.oddEvenJumps(A) + "");
     }

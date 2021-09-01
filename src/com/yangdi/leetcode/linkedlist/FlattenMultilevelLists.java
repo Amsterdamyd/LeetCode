@@ -79,6 +79,7 @@ public class FlattenMultilevelLists {
      * Check every node if it has a child node.
      * If not, we turn to the next one, and flatten the remaining nodes.
      * If does, flatten the child linked list, return its tail node, and link it with the upper level list.
+     *
      * @param currNode
      * @return
      */
@@ -116,6 +117,7 @@ public class FlattenMultilevelLists {
      * By LeetCode
      * Approach1: recursion
      * Depth-first search(pre-order)
+     *
      * @param head
      * @return
      */
@@ -150,6 +152,7 @@ public class FlattenMultilevelLists {
      * By leetcode
      * Approach2: iteration
      * Stack: last in, first out(LIFO)
+     *
      * @param head
      * @return
      */

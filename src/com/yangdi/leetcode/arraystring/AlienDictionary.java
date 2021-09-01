@@ -14,7 +14,8 @@ public class AlienDictionary {
             orderMap.put(order.charAt(i), i);
         }
 
-        abc: for (int i = 0; i < words.length - 1; i++) {
+        abc:
+        for (int i = 0; i < words.length - 1; i++) {
             String word1 = words[i];
             String word2 = words[i + 1];
 

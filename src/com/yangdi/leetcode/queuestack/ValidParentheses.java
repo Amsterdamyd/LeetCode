@@ -38,7 +38,7 @@ public class ValidParentheses {
             }
         }
 
-         return parentheses.empty();
+        return parentheses.empty();
     }
 
     /**
@@ -90,7 +90,7 @@ public class ValidParentheses {
         System.out.println(x);
         System.out.println(y);
 
-        int[] a = new int[]{1,2,3};
+        int[] a = new int[]{1, 2, 3};
         //int[] b = Arrays.copyOf(a, a.length);
         int[] b = new int[3];
         copy(b, a);

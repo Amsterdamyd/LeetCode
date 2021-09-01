@@ -17,11 +17,11 @@ public class DailyTemperatures {
         int[] numbers = new int[T.length];
         Stack<Integer> stack = new Stack<>();
 
-        for (int i = T.length-1; i >= 0; i--) {
+        for (int i = T.length - 1; i >= 0; i--) {
             while (!stack.isEmpty() && T[i] >= T[stack.peek()]) {
                 stack.pop();
             }
-            numbers[i] = stack.isEmpty() ? 0 : stack.peek()-i;
+            numbers[i] = stack.isEmpty() ? 0 : stack.peek() - i;
             stack.push(i);
         }
 

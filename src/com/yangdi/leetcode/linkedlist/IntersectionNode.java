@@ -8,6 +8,7 @@ public class IntersectionNode {
      * By myself
      * time complexity: O(n)
      * space complexity: O(n)
+     *
      * @param headA
      * @param headB
      * @return

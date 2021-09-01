@@ -17,11 +17,11 @@ public class ReverseString2 {
         char[] strs = trimeStr.toCharArray();
 
         int i = 0;
-        for (; i < strs.length - 1; i++ ) {
+        for (; i < strs.length - 1; i++) {
             if (!" ".equals(Character.toString(strs[i]))) {
                 strBuffer.append(strs[i]);
 
-                if (" ".equals(Character.toString(strs[i+1]))) {
+                if (" ".equals(Character.toString(strs[i + 1]))) {
                     list.add(strBuffer);
                     strBuffer = new StringBuffer();
                 }
@@ -33,7 +33,7 @@ public class ReverseString2 {
         list.add(strBuffer);
 
         strBuffer = new StringBuffer();
-        for (int j = list.size() - 1; j > 0 ; j--) {
+        for (int j = list.size() - 1; j > 0; j--) {
             strBuffer.append(list.get(j));
             strBuffer.append(" ");
         }
@@ -49,6 +49,6 @@ public class ReverseString2 {
         String s = "       ";
         ReverseString2 reverse = new ReverseString2();
 
-        System.out.println("//"+reverse.reverseWords(s)+"//");
+        System.out.println("//" + reverse.reverseWords(s) + "//");
     }
 }

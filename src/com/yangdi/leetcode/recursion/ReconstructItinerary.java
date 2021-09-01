@@ -36,7 +36,7 @@ public class ReconstructItinerary {
     }
 
     boolean backtracking(String start) {
-        if (total.size() == len+1) {
+        if (total.size() == len + 1) {
             return true;
         }
         if (!map.containsKey(start)) {
@@ -55,7 +55,7 @@ public class ReconstructItinerary {
                     return true;
                 }
 
-                total.remove(total.size()-1);
+                total.remove(total.size() - 1);
                 isVisitedItem[index] = false;
             }
             index++;

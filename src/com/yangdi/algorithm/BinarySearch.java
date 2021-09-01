@@ -16,7 +16,7 @@ public class BinarySearch {
         int pivot = (begin + end) / 2;
 
         if (nums[pivot] > target) {
-            return binarySearch(target, nums, begin, pivot-1);
+            return binarySearch(target, nums, begin, pivot - 1);
         } else if (nums[pivot] < target) {
             return binarySearch(target, nums, pivot + 1, end);
         } else {
@@ -26,9 +26,9 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int target = 2;
-        int[] nums = {2,3,5,7,9,11,13};
+        int[] nums = {2, 3, 5, 7, 9, 11, 13};
 
-        int k = binarySearch(target, nums, 0, nums.length-1);
+        int k = binarySearch(target, nums, 0, nums.length - 1);
 
         System.out.println(k);
     }

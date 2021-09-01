@@ -57,7 +57,7 @@ public class LargestRectangle {
             }
         }
 
-        int currentArea  = heights[minindex] * (end - start + 1);
+        int currentArea = heights[minindex] * (end - start + 1);
         int leftArea = calculateArea(heights, start, minindex - 1);
         int rightArea = calculateArea(heights, minindex + 1, end);
 
@@ -72,6 +72,6 @@ public class LargestRectangle {
         LargestRectangle larRectangle = new LargestRectangle();
         //int[] heights = {2,1,5,6,2,3};
         int[] heights = {6, 4, 5, 2, 4, 3, 9};
-        System.out.println(larRectangle.largestRectangleArea2(heights)+"");
+        System.out.println(larRectangle.largestRectangleArea2(heights) + "");
     }
 }

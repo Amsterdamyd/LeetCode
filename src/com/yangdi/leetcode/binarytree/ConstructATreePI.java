@@ -35,8 +35,8 @@ public class ConstructATreePI {
         int[] leftPreorder = Arrays.copyOfRange(preorder, 1, leftInorder.length + 1);
         int[] rightPreorder = Arrays.copyOfRange(preorder, leftInorder.length + 1, preorder.length);
 
-        root.left  = buildTree(leftPreorder,leftInorder);
-        root.right = buildTree(rightPreorder,rightInorder);
+        root.left = buildTree(leftPreorder, leftInorder);
+        root.right = buildTree(rightPreorder, rightInorder);
 
         return root;
     }

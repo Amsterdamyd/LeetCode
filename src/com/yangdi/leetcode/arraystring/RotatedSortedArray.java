@@ -17,21 +17,21 @@ public class RotatedSortedArray {
         int smallIndex = 0, largeIndex = 0;
 
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] < nums[i-1]) {
+            if (nums[i] < nums[i - 1]) {
                 smallIndex = i;
-                largeIndex = i-1;
+                largeIndex = i - 1;
                 break;
             }
         }
 
         if (smallIndex == 0) {
-            largeIndex = nums.length-1;
+            largeIndex = nums.length - 1;
         }
 
         smallest = nums[smallIndex];
         largest = nums[largeIndex];
 
-        if (target >= smallest && target <= nums[nums.length-1]) {
+        if (target >= smallest && target <= nums[nums.length - 1]) {
             for (int j = smallIndex; j < nums.length; j++) {
                 if (target == nums[j]) {
                     return j;
@@ -59,7 +59,7 @@ public class RotatedSortedArray {
         int start = 0, end = nums.length - 1;
 
         while (start < end) {
-            int mid = start + (end - start)/2;
+            int mid = start + (end - start) / 2;
 
             if (nums[mid] == target) {
                 return mid;

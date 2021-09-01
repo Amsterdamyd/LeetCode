@@ -21,7 +21,7 @@ public class PalindromicSubstring {
 
         for (int i = 0; i < s.length(); i++) {
             for (int j = i + 1; j <= s.length(); j++) {
-                if (isPalindrome(s, i , j)) {
+                if (isPalindrome(s, i, j)) {
                     String sub = s.substring(i, j);
                     if (sub.length() > longPalin.length()) {
                         longPalin = sub;
@@ -52,10 +52,10 @@ public class PalindromicSubstring {
      * Dynamic Programming
      * time complexity: O(n*n)
      * space complexity:O(n*n)
-     *
+     * <p>
      * We define P(i,j) as following: P(i,j) = true if the substring(i,j) is a palindrome, otherwise false.
      * So P(i, j) = P(i+1, j-1) && S(i) == S(j)
-     *
+     * <p>
      * The base cases are:
      * palindrome length == 1 --> P(i, i) = true
      * palindrome length == 2 --> p(i, i+1) = (S(i) == S(i+1))
@@ -69,15 +69,15 @@ public class PalindromicSubstring {
         for (int k = 0; k < len; k++) {
             for (int i = 0; i + k < len; i++) {
                 if (k == 0) {
-                    p[i][i+k] = true;
+                    p[i][i + k] = true;
                 } else if (k == 1) {
-                    p[i][i+k] = (s.charAt(i) == s.charAt(i+1)) ? true : false;
+                    p[i][i + k] = (s.charAt(i) == s.charAt(i + 1)) ? true : false;
                 } else if (k > 1) {
-                    p[i][i+k] = p[i+1][i+k-1] && (s.charAt(i) == s.charAt(i+k));
+                    p[i][i + k] = p[i + 1][i + k - 1] && (s.charAt(i) == s.charAt(i + k));
                 }
 
-                if (p[i][i+k] && k + 1 > longPalin.length()) {
-                    longPalin = s.substring(i, i+k+1);
+                if (p[i][i + k] && k + 1 > longPalin.length()) {
+                    longPalin = s.substring(i, i + k + 1);
                 }
             }
         }

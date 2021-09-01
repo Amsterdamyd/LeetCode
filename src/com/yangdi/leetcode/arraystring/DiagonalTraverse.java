@@ -6,6 +6,7 @@ import java.util.Collections;
 public class DiagonalTraverse {
     /**
      * By DiYang
+     *
      * @param matrix
      * @return
      */
@@ -49,6 +50,7 @@ public class DiagonalTraverse {
 
     /**
      * By LeetCode
+     *
      * @param matrix
      * @return
      */
@@ -64,7 +66,7 @@ public class DiagonalTraverse {
         int M = matrix[0].length;
 
         // The two arrays as explained in the algorithm
-        int[] result = new int[N*M];
+        int[] result = new int[N * M];
         int k = 0;
         ArrayList<Integer> intermediate = new ArrayList<>();
 
@@ -108,6 +110,7 @@ public class DiagonalTraverse {
 
     /**
      * By LeetCode
+     *
      * @param matrix
      * @return
      */
@@ -132,7 +135,7 @@ public class DiagonalTraverse {
         int direction = 1;
 
         // The final result array
-        int[] result = new int[N*M];
+        int[] result = new int[N * M];
         int r = 0;
 
         // The uber while loop which will help us iterate over all
@@ -160,7 +163,7 @@ public class DiagonalTraverse {
                     // If [i, j + 1] is within bounds, then it becomes the next head.
                     // Otherwise, the element directly below
                     // i.e. the element [i + 1, j] becomes the next head
-                    row += (column == M - 1 ? 1 : 0) ;
+                    row += (column == M - 1 ? 1 : 0);
                     column += (column < M - 1 ? 1 : 0);
 
                 } else {
@@ -186,7 +189,7 @@ public class DiagonalTraverse {
     }
 
     public static void main(String[] args) {
-        int[][] matrix = {{1, 2, 3,4,5},{6, 7, 8,9,10},{11,12,13,14,15},{16,17,18,19,20}};
+        int[][] matrix = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}};
         //int[][] matrix = {{1,2,3,4,5,6,7,8,9,10}};
 
         DiagonalTraverse traverse = new DiagonalTraverse();

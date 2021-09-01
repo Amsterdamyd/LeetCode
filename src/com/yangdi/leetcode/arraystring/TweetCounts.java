@@ -53,11 +53,11 @@ public class TweetCounts {
         for (Integer time : times) {
             if (time >= startTime && time <= endTime) {
                 int x = (time - startTime) / freqChunk;
-                freqMap.put(x, freqMap.getOrDefault(x,0) + 1);
+                freqMap.put(x, freqMap.getOrDefault(x, 0) + 1);
             }
         }
 
-        int chunkNum = (endTime-startTime)/freqChunk+1;
+        int chunkNum = (endTime - startTime) / freqChunk + 1;
         for (int i = 0; i < chunkNum; i++) {
             if (freqMap.containsKey(i)) {
                 result.add(freqMap.get(i));

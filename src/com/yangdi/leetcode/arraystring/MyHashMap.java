@@ -14,6 +14,7 @@ public class MyHashMap {
     // (handle collision)
     class Entry {
         Integer key, val;
+
         public Entry(int k, int v) {
             key = k;
             val = v;
@@ -23,7 +24,9 @@ public class MyHashMap {
     private int modulo;
     private List<LinkedList<Entry>> array;
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public MyHashMap() {
         modulo = 2069;
         array = new ArrayList<>();
@@ -33,7 +36,9 @@ public class MyHashMap {
         }
     }
 
-    /** value will always be non-negative. */
+    /**
+     * value will always be non-negative.
+     */
     public void put(int key, int val) {
         int hashKey = key % modulo;
         // check existance of this key in bucket-of-hashKey
@@ -48,7 +53,9 @@ public class MyHashMap {
         bucketList.addLast(new Entry(key, val));
     }
 
-    /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+    /**
+     * Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
+     */
     public int get(int key) {
         int hashKey = key % modulo;
         LinkedList<Entry> bucketList = array.get(hashKey);
@@ -61,7 +68,9 @@ public class MyHashMap {
         return -1;
     }
 
-    /** Removes the mapping of the specified value key if this map contains a mapping for the key */
+    /**
+     * Removes the mapping of the specified value key if this map contains a mapping for the key
+     */
     public void remove(int key) {
         int hashKey = key % modulo;
         LinkedList<Entry> bucketList = array.get(hashKey);

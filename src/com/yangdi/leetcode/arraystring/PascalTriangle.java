@@ -7,6 +7,7 @@ import java.util.List;
 public class PascalTriangle {
     /**
      * By Di Yang
+     *
      * @param numRows
      * @return
      */
@@ -42,6 +43,7 @@ public class PascalTriangle {
 
     /**
      * By LeetCode
+     *
      * @param numRows
      * @return
      */
@@ -59,7 +61,7 @@ public class PascalTriangle {
 
         for (int rowNum = 1; rowNum < numRows; rowNum++) {
             List<Integer> row = new ArrayList<>();
-            List<Integer> prevRow = triangle.get(rowNum-1);
+            List<Integer> prevRow = triangle.get(rowNum - 1);
 
             // The first row element is always 1.
             row.add(1);
@@ -68,7 +70,7 @@ public class PascalTriangle {
             // is equal to the sum of the elements above-and-to-the-left and
             // above-and-to-the-right.
             for (int j = 1; j < rowNum; j++) {
-                row.add(prevRow.get(j-1) + prevRow.get(j));
+                row.add(prevRow.get(j - 1) + prevRow.get(j));
             }
 
             // The last row element is always 1.
@@ -86,8 +88,8 @@ public class PascalTriangle {
 
         List<List<Integer>> list = triangle.generate1(numRows);
 
-        for (List<Integer> item: list) {
-            for (Integer i: item) {
+        for (List<Integer> item : list) {
+            for (Integer i : item) {
                 System.out.print(i + " ");
             }
             System.out.println();

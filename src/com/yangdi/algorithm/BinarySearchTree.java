@@ -5,12 +5,12 @@ import com.yangdi.leetcode.binarytree.TreeNode;
 /**
  * Binary Search Tree definition: BST is a binary tree where the key in each node is
  * greater than any key stored in the left sub-tree, and less than any key stored in the right sub-tree.
- *
+ * <p>
  * A valid BST is defined as follows:
  * The left subtree of a node contains only nodes with keys less than the node's key.
  * The right subtree of a node contains only nodes with keys greater than the node's key.
  * Both the left and right subtrees must also be binary search trees.
- *
+ * <p>
  * Basic function: search, insert, delete
  * Time complexity: O(log(N))
  * All the values of the tree are unique.
@@ -18,7 +18,7 @@ import com.yangdi.leetcode.binarytree.TreeNode;
 public class BinarySearchTree {
 
     /**
-     *  binary search tree search
+     * binary search tree search
      */
     public TreeNode searchBST(TreeNode root, int val) {
         if (root == null || val == root.val) {

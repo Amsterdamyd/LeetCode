@@ -27,7 +27,7 @@ public class FindLargestTwiceNumber {
 
     public static void main(String[] args) {
         //int[] nums = {3,6,1,0};
-        int[] nums = {1,2,3,4};
+        int[] nums = {1, 2, 3, 4};
         //int[] nums = {0,0,0,0};
 
         FindLargestTwiceNumber findLargest = new FindLargestTwiceNumber();

@@ -17,8 +17,8 @@ public class SpiralMatrix {
     public List<Integer> spiralOrder4(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
 
-        int top = 0, down = matrix.length-1;
-        int left = 0, right = matrix[0].length-1;
+        int top = 0, down = matrix.length - 1;
+        int left = 0, right = matrix[0].length - 1;
         int direction = 0;
 
         while (top <= down && left <= right) {
@@ -44,7 +44,7 @@ public class SpiralMatrix {
                 left++;
             }
 
-            direction = (direction+1) % 4;
+            direction = (direction + 1) % 4;
         }
 
         return list;
@@ -78,13 +78,13 @@ public class SpiralMatrix {
                 column += (column > r) ? -1 : 0;
             }
 
-            if (row == newN - 1 && column == newM -1) {
+            if (row == newN - 1 && column == newM - 1) {
                 newN--;
                 flag = !flag;
             } else if (row == N - newN && column == row - 1) {
                 newM--;
                 flag = !flag;
-            } else if (row == newN - 1 && column == r){
+            } else if (row == newN - 1 && column == r) {
                 r++;
             }
         }
@@ -112,7 +112,7 @@ public class SpiralMatrix {
             int cr = r + dr[di];
             int cc = c + dc[di];
 
-            if (0 <= cr && cr < R && 0 <= cc && cc < C && !seen[cr][cc]){
+            if (0 <= cr && cr < R && 0 <= cc && cc < C && !seen[cr][cc]) {
                 r = cr;
                 c = cc;
             } else {
@@ -127,7 +127,7 @@ public class SpiralMatrix {
     /**
      * By LeetCode
      */
-    public List < Integer > spiralOrder3(int[][] matrix) {
+    public List<Integer> spiralOrder3(int[][] matrix) {
         List<Integer> ans = new ArrayList();
         if (matrix.length == 0)
             return ans;
@@ -161,7 +161,7 @@ public class SpiralMatrix {
 
     public static void main(String[] args) {
         //int[][] num = {{1, 2, 3,4,5},{6, 7, 8,9,10},{11,12,13,14,15},{16,17,18,19,20}};
-        int[][] num = {{1,2,3,4,5}, {6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20},{21,22,23,24,25}};
+        int[][] num = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}};
         //int[][] num = {{1, 2, 3,4,5},{6, 7, 8,9,10}};
 
         SpiralMatrix matrix = new SpiralMatrix();

@@ -12,13 +12,13 @@ public class CoinChange {
      * Space complexity: O(amount)
      */
     public int coinChange(int[] coins, int amount) {
-        Integer[] memo = new Integer[amount+1];
+        Integer[] memo = new Integer[amount + 1];
         return helper(coins, amount, memo);
     }
 
     int helper(int[] coins, int remain, Integer[] memo) {
         if (remain == 0) {
-           return 0;
+            return 0;
         }
         if (remain < 0) {
             return -1;
@@ -49,8 +49,8 @@ public class CoinChange {
      */
     public int coinChange2(int[] coins, int amount) {
         // dp_i is min num of coins needed for amount i
-        int[] dp = new int[amount+1];
-        Arrays.fill(dp, amount+1);
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
 
         dp[0] = 0;
         for (int i = 1; i <= amount; i++) { // loop over dp_i
@@ -59,10 +59,10 @@ public class CoinChange {
                     continue;
                 }
 
-                dp[i] = Math.min(dp[i], dp[i-coin] + 1);
+                dp[i] = Math.min(dp[i], dp[i - coin] + 1);
             }
         }
 
-        return dp[amount] == (amount+1) ? -1 : dp[amount];
+        return dp[amount] == (amount + 1) ? -1 : dp[amount];
     }
 }

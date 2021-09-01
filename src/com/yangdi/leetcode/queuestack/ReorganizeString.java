@@ -10,9 +10,9 @@ public class ReorganizeString {
 
     public String reorganizeString(String S) {
 
-        HashMap<Character,Integer> H = new HashMap<>();
+        HashMap<Character, Integer> H = new HashMap<>();
         for (int i = 0; i < S.length(); ++i) {
-            H.put(S.charAt(i),H.getOrDefault(S.charAt(i),0)+1);
+            H.put(S.charAt(i), H.getOrDefault(S.charAt(i), 0) + 1);
         }
 
         // greatest one is at the top of priority queue
@@ -23,10 +23,10 @@ public class ReorganizeString {
         String ans = "";
         while (P.size() >= 2) {
             char first = P.poll();
-            H.put(first, H.get(first)-1);
+            H.put(first, H.get(first) - 1);
 
             char second = P.poll();
-            H.put(second,H.get(second)-1);
+            H.put(second, H.get(second) - 1);
 
             ans += "" + first + "" + second;
             if (H.get(first) >= 1) {

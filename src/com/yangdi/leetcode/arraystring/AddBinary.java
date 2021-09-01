@@ -40,7 +40,7 @@ public class AddBinary {
             } else if (aLen >= 0 && bLen < 0) {
                 map = addChar(aChar[aLen], '0');
             } else {
-                if (carry != '0'){
+                if (carry != '0') {
                     sum.append(carry);
                 }
 
@@ -53,7 +53,7 @@ public class AddBinary {
             } else {
                 Map<String, Character> newMap = addChar(map.get("result"), carry);
                 sum.append(newMap.get("result"));
-                carry = addChar(map.get("carry"),newMap.get("carry")).get("result");
+                carry = addChar(map.get("carry"), newMap.get("carry")).get("result");
             }
 
             aLen--;

@@ -8,7 +8,7 @@ public class FruitIntoBaskets {
     public int totalFruit(int[] tree) {
         int maxFruits = 0;
 
-        for (int i = 0; i < tree.length;) {
+        for (int i = 0; i < tree.length; ) {
             int basket1 = -1;
             int basket2 = -1;
             Map<Integer, Integer> fruitsMap = new HashMap();
@@ -50,7 +50,7 @@ public class FruitIntoBaskets {
 
     public static void main(String[] args) {
         //int[] tree = {3,3,3,1,2,1,1,2,3,3,4};
-        int[] tree = {0,1,6,6,4,4,6};
+        int[] tree = {0, 1, 6, 6, 4, 4, 6};
 
         FruitIntoBaskets fruitIntoBaskets = new FruitIntoBaskets();
         System.out.println(fruitIntoBaskets.totalFruit(tree) + "");

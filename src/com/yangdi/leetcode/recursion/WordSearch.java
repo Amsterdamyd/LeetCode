@@ -71,23 +71,23 @@ public class WordSearch {
         char item = word.charAt(1);
         String newWord = word.substring(1);
 
-        if (i-1 >= 0 && board[i-1][j] == item) {
-            if (helper(board, isVisited, i-1, j, newWord)) {
+        if (i - 1 >= 0 && board[i - 1][j] == item) {
+            if (helper(board, isVisited, i - 1, j, newWord)) {
                 return true;
             }
         }
-        if (j+1 <= board[0].length-1 && board[i][j+1] == item) {
-            if (helper(board, isVisited, i, j+1, newWord)) {
+        if (j + 1 <= board[0].length - 1 && board[i][j + 1] == item) {
+            if (helper(board, isVisited, i, j + 1, newWord)) {
                 return true;
             }
         }
-        if (i+1 <= board.length-1 && board[i+1][j] == item) {
-            if (helper(board, isVisited, i+1, j, newWord)) {
+        if (i + 1 <= board.length - 1 && board[i + 1][j] == item) {
+            if (helper(board, isVisited, i + 1, j, newWord)) {
                 return true;
             }
         }
-        if (j-1 >= 0 && board[i][j-1] == item) {
-            if (helper(board, isVisited, i, j-1, newWord)) {
+        if (j - 1 >= 0 && board[i][j - 1] == item) {
+            if (helper(board, isVisited, i, j - 1, newWord)) {
                 return true;
             }
         }
@@ -103,8 +103,8 @@ public class WordSearch {
         /*char[][] board = {{'A','B','C','E'},{'S','F','E','S'},{'A','D','E','E'}};
         String word = "ABCEFSADEESE";*/
 
-        char[][] board = {{'a','a','a','a'},{'a','a','a','a'},{'a','a','a','a'}};
-        String word =  "aaaaaaaaaaaaa";
+        char[][] board = {{'a', 'a', 'a', 'a'}, {'a', 'a', 'a', 'a'}, {'a', 'a', 'a', 'a'}};
+        String word = "aaaaaaaaaaaaa";
 
         WordSearch search = new WordSearch();
         if (search.exist(board, word)) {

@@ -5,8 +5,8 @@ import java.util.HashSet;
 /**
  * Given two arrays, write a function to compute their intersection.
  * Note:
- *   Each element in the result must be unique.
- *   The result can be in any order.
+ * Each element in the result must be unique.
+ * The result can be in any order.
  */
 public class Intersections1 {
 

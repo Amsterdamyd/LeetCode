@@ -26,7 +26,7 @@ public class OddEvenJump2 {
                         node.evenNode = list2.get(i - 1); //not correct if there are several equal values before i
                     }
 
-                    if (i + 1 <= list2.size() -1) {
+                    if (i + 1 <= list2.size() - 1) {
                         node.oddNode = list2.get(i + 1);
                     }
 

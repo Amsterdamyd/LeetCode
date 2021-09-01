@@ -16,8 +16,8 @@ public class ArrayAndList {
         list.add(8);
         list.add(6);
 
-        int[] A = {5,1,3,4,2};
-        Integer[] B = {5,1,3,4,2};
+        int[] A = {5, 1, 3, 4, 2};
+        Integer[] B = {5, 1, 3, 4, 2};
 
         // list sorting
         list.sort(Comparator.naturalOrder()); // stable
@@ -47,13 +47,13 @@ public class ArrayAndList {
         set.add(1);
         set.add(2);
         set.add(1);
-        if(set.contains(1)) {
+        if (set.contains(1)) {
             int[] items = set.stream().mapToInt(x -> x).toArray();
         }
 
         // TreeMap
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        for(int item : A) {
+        for (int item : A) {
             treeMap.put(item, treeMap.getOrDefault(item, 0) + 1);
         }
         int key = 3;
@@ -62,7 +62,7 @@ public class ArrayAndList {
 
         // how to traverse a HashMap
         Map<Integer, Integer> freq = new HashMap<>();
-        for(Integer item : A) {
+        for (Integer item : A) {
             freq.put(item, treeMap.getOrDefault(item, 0) + 1);
         }
         for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {

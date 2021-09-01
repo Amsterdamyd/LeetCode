@@ -11,7 +11,7 @@ public class Pow {
             return helper(x, n);
         } else {
             // When n is Integer.MIN_VALUE, (-n) is still negative, and equal to itself.
-            return 1/helper(x, -n);
+            return 1 / helper(x, -n);
         }
     }
 
@@ -70,6 +70,7 @@ public class Pow {
 
         return fastPow(x, N);
     }
+
     private double fastPow(double x, long n) {
         if (n == 0) {
             return 1.0;

@@ -7,7 +7,7 @@ public class DeleteEarn {
 
     public int deleteAndEarn(int[] nums) {
         int[] count = new int[10001];
-        for (int x: nums) count[x]++;
+        for (int x : nums) count[x]++;
         int avoid = 0, using = 0, prev = -1;
 
         for (int k = 0; k <= 10000; ++k) {

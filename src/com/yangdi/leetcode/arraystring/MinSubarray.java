@@ -5,6 +5,7 @@ public class MinSubarray {
     /**
      * Time Complexity: O(n*n)
      * Brute force(not recommended)
+     *
      * @param s
      * @param nums
      * @return
@@ -20,7 +21,7 @@ public class MinSubarray {
 
             boolean flag = false;
             int j = 1;
-            for (; j< nums.length - i; j++) {
+            for (; j < nums.length - i; j++) {
                 sum += nums[i + j];
                 if (sum >= s) {
                     flag = true;
@@ -32,8 +33,8 @@ public class MinSubarray {
                 minLength = Math.min(j + 1, minLength);
             }
 
-            if (i ==0 && sum < s) {
-               return 0;
+            if (i == 0 && sum < s) {
+                return 0;
             }
         }
 
@@ -77,7 +78,7 @@ public class MinSubarray {
                     int subArrSum = sums[i] - sums[pivot] + nums[pivot];
 
                     if (subArrSum > s) {
-                        pivot ++;
+                        pivot++;
                     } else if (subArrSum < s) {
                         pivot--;
                     } else {
@@ -94,6 +95,7 @@ public class MinSubarray {
     /**
      * Time Complexity: O(n)
      * Sliding Window (Recommended)
+     *
      * @param s
      * @param nums
      * @return
@@ -117,7 +119,7 @@ public class MinSubarray {
 
     public static void main(String[] args) {
         int s = 11;
-        int[] nums = {1,2,3,4,5};
+        int[] nums = {1, 2, 3, 4, 5};
 
         /*int s = 7;
         int[] nums = {2,3,1,2,4,3};*/

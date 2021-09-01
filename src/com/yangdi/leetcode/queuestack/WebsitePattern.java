@@ -34,12 +34,12 @@ public class WebsitePattern {
                 continue;
             }
 
-            Collections.sort(web, (Object[] a,Object[] b) -> Integer.parseInt(a[0].toString())-Integer.parseInt(b[0].toString()));
+            Collections.sort(web, (Object[] a, Object[] b) -> Integer.parseInt(a[0].toString()) - Integer.parseInt(b[0].toString()));
 
-            for (int i = 0; i < web.size()-2; i++) {
-                for (int j = i+1; j < web.size()-1; j++) {
-                    for (int k = j+1; k < web.size(); k++) {
-                        String item = web.get(i)[1] + "-" +  web.get(j)[1] + "-" + web.get(k)[1];
+            for (int i = 0; i < web.size() - 2; i++) {
+                for (int j = i + 1; j < web.size() - 1; j++) {
+                    for (int k = j + 1; k < web.size(); k++) {
+                        String item = web.get(i)[1] + "-" + web.get(j)[1] + "-" + web.get(k)[1];
                         Set<String> set = count.getOrDefault(item, new HashSet<>());
                         set.add(user);
 
@@ -62,9 +62,9 @@ public class WebsitePattern {
     }
 
     public static void main(String[] args) {
-        String[] username = {"h","eiy","cq","h","cq","txldsscx","cq","txldsscx","h","cq","cq"};
-        int[] timestamp = {527896567,334462937,517687281,134127993,859112386,159548699,51100299,444082139,926837079,317455832,411747930};
-        String[] website = {"hibympufi","hibympufi","hibympufi","hibympufi","hibympufi","hibympufi","hibympufi","hibympufi","yljmntrclw","hibympufi","yljmntrclw"};
+        String[] username = {"h", "eiy", "cq", "h", "cq", "txldsscx", "cq", "txldsscx", "h", "cq", "cq"};
+        int[] timestamp = {527896567, 334462937, 517687281, 134127993, 859112386, 159548699, 51100299, 444082139, 926837079, 317455832, 411747930};
+        String[] website = {"hibympufi", "hibympufi", "hibympufi", "hibympufi", "hibympufi", "hibympufi", "hibympufi", "hibympufi", "yljmntrclw", "hibympufi", "yljmntrclw"};
 
         WebsitePattern pattern = new WebsitePattern();
         List<String> list = pattern.mostVisitedPattern(username, timestamp, website);

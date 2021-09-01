@@ -53,7 +53,7 @@ public class PopulatePointers2 {
     }
 
     void connectNextLevelNode(TreeNodePro rootNext, TreeNodePro childNode) {
-        while(rootNext != null) {
+        while (rootNext != null) {
             if (rootNext.left != null || rootNext.right != null) {
                 break;
             } else {
@@ -89,7 +89,7 @@ public class PopulatePointers2 {
             int size = Q.size();
 
             // Iterate over all the nodes on the current level
-            for(int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 // Pop a node from the front of the queue
                 TreeNodePro node = Q.poll();
                 if (i < size - 1) {
@@ -113,6 +113,7 @@ public class PopulatePointers2 {
      * Iterative solution 2 from leetcode
      */
     TreeNodePro prev, leftmost;
+
     public TreeNodePro connect3(TreeNodePro root) {
         if (root == null) {
             return null;
@@ -137,7 +138,7 @@ public class PopulatePointers2 {
             }
         }
 
-        return root ;
+        return root;
     }
 
     public void processChild(TreeNodePro childNode) {

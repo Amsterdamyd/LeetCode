@@ -7,13 +7,14 @@ public class BubbleSort {
     /**
      * Time complexity: O(n*n)
      * Space complexity: O(1)
-      * @param nums
+     *
+     * @param nums
      */
     static void bubbleSort(int nums[]) {
         int index;
 
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i+1; j < nums.length; j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 if (nums[j] < nums[i]) {
                     index = nums[i];
                     nums[i] = nums[j];

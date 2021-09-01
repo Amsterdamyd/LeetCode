@@ -36,6 +36,7 @@ public class Palindrome {
      * step3: Determine whether or not there is a palindrome.
      * step4: Restore the list.
      * step5: Return the result.
+     *
      * @param head
      * @return
      */
@@ -100,7 +101,7 @@ public class Palindrome {
         node5.next = null;
 
         Palindrome palindrome = new Palindrome();
-        System.out.println("result is "+palindrome.isPalindrome(node1));
+        System.out.println("result is " + palindrome.isPalindrome(node1));
 
         SinglyListNode node = node1;
         while (node != null) {

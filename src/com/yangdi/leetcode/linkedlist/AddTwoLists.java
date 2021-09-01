@@ -17,8 +17,8 @@ public class AddTwoLists {
             } else {
             }
 
-            carry = value >= 10 ? value/10 : 0;
-            value = value >= 10 ? value%10 : value;
+            carry = value >= 10 ? value / 10 : 0;
+            value = value >= 10 ? value % 10 : value;
 
             SinglyListNode newNode = new SinglyListNode(value);
             prev.next = newNode;

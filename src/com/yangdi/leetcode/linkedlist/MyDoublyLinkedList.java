@@ -30,7 +30,7 @@ public class MyDoublyLinkedList {
         } else { // traverse from the end
             currentNode = tail;
             for (int i = size - 1; i >= index; i--) {
-                currentNode= currentNode.pre;
+                currentNode = currentNode.pre;
             }
         }
 

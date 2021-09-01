@@ -28,7 +28,7 @@ public class DistanceK {
             if (node == null) {
                 if (dist == K) {
                     List<Integer> ans = new ArrayList();
-                    for (TreeNode n: queue) {
+                    for (TreeNode n : queue) {
                         ans.add(n.val);
                     }
                     return ans;

@@ -17,18 +17,18 @@ public class CutCake {
         int vCutsLen = verticalCuts.length;
 
         for (int i = 1; i < hCutsLen; i++) {
-            hightMx = Math.max(hightMx, horizontalCuts[i] - horizontalCuts[i-1]);
+            hightMx = Math.max(hightMx, horizontalCuts[i] - horizontalCuts[i - 1]);
         }
-        hightMx = Math.max(hightMx, h - horizontalCuts[hCutsLen-1]);
+        hightMx = Math.max(hightMx, h - horizontalCuts[hCutsLen - 1]);
 
         for (int i = 1; i < vCutsLen; i++) {
-            widthMx = Math.max(widthMx, verticalCuts[i] - verticalCuts[i-1]);
+            widthMx = Math.max(widthMx, verticalCuts[i] - verticalCuts[i - 1]);
         }
-        widthMx = Math.max(widthMx, w - verticalCuts[vCutsLen-1]);
+        widthMx = Math.max(widthMx, w - verticalCuts[vCutsLen - 1]);
 
-        long result = (long)hightMx * (long)widthMx;
-        result %= (int)1E9 + 7;
+        long result = (long) hightMx * (long) widthMx;
+        result %= (int) 1E9 + 7;
 
-        return (int)result;
+        return (int) result;
     }
 }

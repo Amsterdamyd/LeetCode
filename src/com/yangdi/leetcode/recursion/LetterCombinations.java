@@ -48,7 +48,7 @@ public class LetterCombinations {
 
         // Get the letters that the current digit maps to, and loop through them
         String item = letters.get(phoneDigits.charAt(index));
-        for (char letter: item.toCharArray()) {
+        for (char letter : item.toCharArray()) {
             // Add the letter to our current path
             path.append(letter);
             // Move on to the next digit

@@ -15,13 +15,17 @@ public class GetRandom {
         Map<Integer, Integer> map;
         Random ran = new Random();
 
-        /** Initialize your data structure here. */
+        /**
+         * Initialize your data structure here.
+         */
         public RandomizedSet() {
             list = new ArrayList<>();
             map = new HashMap<>();
         }
 
-        /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+        /**
+         * Inserts a value to the set. Returns true if the set did not already contain the specified element.
+         */
         public boolean insert(int val) {
             if (map.containsKey(val)) {
                 return false;
@@ -34,16 +38,18 @@ public class GetRandom {
             }
         }
 
-        /** Removes a value from the set. Returns true if the set contained the specified element. */
+        /**
+         * Removes a value from the set. Returns true if the set contained the specified element.
+         */
         public boolean remove(int val) {
             if (!map.containsKey(val)) {
                 return false;
             } else {
                 int index = map.get(val);
-                int lastElment = list.get(map.size()-1);
+                int lastElment = list.get(map.size() - 1);
 
                 list.set(index, lastElment);
-                list.remove(map.size()-1);
+                list.remove(map.size() - 1);
 
                 map.put(lastElment, index);
                 map.remove(val);
@@ -52,7 +58,9 @@ public class GetRandom {
             }
         }
 
-        /** Get a random element from the set. */
+        /**
+         * Get a random element from the set.
+         */
         public int getRandom() {
             return list.get(ran.nextInt(list.size()));
         }
@@ -67,14 +75,18 @@ public class GetRandom {
         List<Integer> list;
         Random ran;
 
-        /** Initialize your data structure here. */
+        /**
+         * Initialize your data structure here.
+         */
         public RandomizedCollection() {
             map = new HashMap<>();
             list = new ArrayList<>();
             ran = new Random();
         }
 
-        /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+        /**
+         * Inserts a value to the collection. Returns true if the collection did not already contain the specified element.
+         */
         public boolean insert(int val) {
             list.add(val);
 
@@ -93,7 +105,9 @@ public class GetRandom {
             }
         }
 
-        /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+        /**
+         * Removes a value from the collection. Returns true if the collection contained the specified element.
+         */
         public boolean remove(int val) {
             if (!map.containsKey(val)) {
                 return false;
@@ -123,7 +137,9 @@ public class GetRandom {
             }
         }
 
-        /** Get a random element from the collection. */
+        /**
+         * Get a random element from the collection.
+         */
         public int getRandom() {
             return list.get(ran.nextInt(list.size()));
         }
@@ -134,14 +150,18 @@ public class GetRandom {
         List<Integer> list;
         Random ran;
 
-        /** Initialize your data structure here. */
+        /**
+         * Initialize your data structure here.
+         */
         public RandomizedCollection2() {
             map = new HashMap<>();
             list = new ArrayList<>();
             ran = new Random();
         }
 
-        /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+        /**
+         * Inserts a value to the collection. Returns true if the collection did not already contain the specified element.
+         */
         public boolean insert(int val) {
             list.add(val);
 
@@ -160,7 +180,9 @@ public class GetRandom {
             }
         }
 
-        /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+        /**
+         * Removes a value from the collection. Returns true if the collection contained the specified element.
+         */
         public boolean remove(int val) {
             if (!map.containsKey(val)) {
                 return false;
@@ -189,7 +211,9 @@ public class GetRandom {
             }
         }
 
-        /** Get a random element from the collection. */
+        /**
+         * Get a random element from the collection.
+         */
         public int getRandom() {
             return list.get(ran.nextInt(list.size()));
         }

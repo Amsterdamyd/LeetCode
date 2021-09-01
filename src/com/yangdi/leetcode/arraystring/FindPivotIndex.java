@@ -6,7 +6,7 @@ import java.util.List;
 public class FindPivotIndex {
 
     public static void main(String[] args) {
-        int nums[] = {1,7,3,6,5,6};
+        int nums[] = {1, 7, 3, 6, 5, 6};
         //int nums[] = {1, 2, 3};
         //int nums[] = {-1,-1,-1,-1,-1,0};
         //int nums[] = {-1,-1,0,0,-1,0};
@@ -17,6 +17,7 @@ public class FindPivotIndex {
 
     /**
      * It can not handle the negative arrays
+     *
      * @param nums
      * @return
      */
@@ -40,7 +41,7 @@ public class FindPivotIndex {
                         rightIndex--;
                     }
                 }
-            } else if(leftSum < rightSum) {
+            } else if (leftSum < rightSum) {
                 leftSum += nums[leftIndex];
                 leftIndex++;
             } else {
@@ -54,6 +55,7 @@ public class FindPivotIndex {
 
     /**
      * It can not handle the negative arrays
+     *
      * @param nums
      * @return
      */
@@ -80,8 +82,8 @@ public class FindPivotIndex {
                 }
             }
 
-            if (index != nums.length -1) {
-                for (int i = index + 1; i< nums.length; i++) {
+            if (index != nums.length - 1) {
+                for (int i = index + 1; i < nums.length; i++) {
                     rightSum += nums[i];
                 }
             }
@@ -130,12 +132,12 @@ public class FindPivotIndex {
 
     public int pivotIndex(int[] nums) {
         int sum = 0;
-        for(int value: nums) {
+        for (int value : nums) {
             sum += value;
         }
 
         int leftSum = 0;
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (sum == leftSum + nums[i] + leftSum) {
                 return i;
             } else {

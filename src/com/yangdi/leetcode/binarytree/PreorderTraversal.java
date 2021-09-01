@@ -83,7 +83,7 @@ public class PreorderTraversal {
                 res.add(tagNode.node.val);
             } else {
                 if (tagNode.node.right != null) {
-                    stack.push(new TagTreeNode(false,tagNode.node.right));
+                    stack.push(new TagTreeNode(false, tagNode.node.right));
                 }
                 if (tagNode.node.left != null) {
                     stack.push(new TagTreeNode(false, tagNode.node.left));

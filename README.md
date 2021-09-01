@@ -1,6 +1,7 @@
 # LeetCode
 
-Basic Learning (145): 
+Basic Learning (145):
+
 1. Complete the card: Array and String - 29
 2. Complete the card: Linked List - 30
 3. Complete the card: Binary Tree - 19
@@ -10,6 +11,7 @@ Basic Learning (145):
 (6. Complete the card: Hash Table - 35)
 
 Interview (290):
+
 1. Google - 85
 2. Facebook - 79
 3. Microsoft - 58

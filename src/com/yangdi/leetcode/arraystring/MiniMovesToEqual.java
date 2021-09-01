@@ -66,7 +66,7 @@ public class MiniMovesToEqual {
             minimum = Math.min(num, minimum);
         }
 
-        for (int i = 0 ; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             count += (nums[i] - minimum);
         }
 
@@ -75,7 +75,7 @@ public class MiniMovesToEqual {
 
     public static void main(String[] args) {
         MiniMovesToEqual minMove = new MiniMovesToEqual();
-        int[] nums = {4,3,5,6,7};
+        int[] nums = {4, 3, 5, 6, 7};
         System.out.println(minMove.minMoves2(nums));
     }
 }

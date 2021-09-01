@@ -35,6 +35,7 @@ public class MaximumDepth {
 
     //recursion (use global variable)
     private int MaxDepth = 0;
+
     public int maxDepth2(TreeNode root) {
         int depth = 0;
         if (root == null) {

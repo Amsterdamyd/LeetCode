@@ -6,7 +6,9 @@ class MinStack {
     Stack<Integer> stack;
     Stack<Integer> minStack;
 
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public MinStack() {
         this.stack = new Stack<>();
         this.minStack = new Stack<>();

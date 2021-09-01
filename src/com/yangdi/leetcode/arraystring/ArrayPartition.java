@@ -23,8 +23,8 @@ public class ArrayPartition {
 
     public static void main(String[] args) {
         ArrayPartition partition = new ArrayPartition();
-        int[] nums = {1,4,3,2,5,6};
+        int[] nums = {1, 4, 3, 2, 5, 6};
 
-        System.out.println(partition.arrayPairSum(nums)+"");
+        System.out.println(partition.arrayPairSum(nums) + "");
     }
 }

@@ -13,7 +13,7 @@ public class DetermineCycle {
             slowNode = slowNode.next;
             quickNode = quickNode.next.next;
 
-            if (quickNode == slowNode){
+            if (quickNode == slowNode) {
                 return true;
             }
         }

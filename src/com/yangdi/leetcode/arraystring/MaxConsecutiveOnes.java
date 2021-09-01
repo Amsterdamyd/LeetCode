@@ -19,7 +19,7 @@ public class MaxConsecutiveOnes {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,1,0,1,0,1};
+        int[] nums = {1, 1, 0, 1, 0, 1};
         MaxConsecutiveOnes maxOnes = new MaxConsecutiveOnes();
         System.out.println(maxOnes.findMaxConsecutiveOnes(nums));
     }

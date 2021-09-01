@@ -1,6 +1,6 @@
 package com.yangdi.leetcode.google;
 
-public class JumpNode implements Comparable<JumpNode>{
+public class JumpNode implements Comparable<JumpNode> {
     int val;
     Boolean oddJumpResult;
     Boolean evenJumpResult;

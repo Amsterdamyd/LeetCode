@@ -11,7 +11,7 @@ public class BreakWord {
      * scan the specific dictionary words
      */
     public boolean wordBreak(String s, List<String> c) {
-        if (s == null || s.length() == 0 ) {
+        if (s == null || s.length() == 0) {
             return false;
         }
 
@@ -146,8 +146,8 @@ public class BreakWord {
 
     public static void main(String[] args) {
         String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaab";
-        String[] items = new String[] {"a", "aa","aaa","aaaa","aaaaa",
-        "aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"};
+        String[] items = new String[]{"a", "aa", "aaa", "aaaa", "aaaaa",
+                "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"};
 
         /*String s = "catsandog";
         String[] items = new String[] {"cat","cats","dog","sand","and"};*/

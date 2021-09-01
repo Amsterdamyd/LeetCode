@@ -39,7 +39,7 @@ public class StringCompression {
             }
         }
 
-        return index+1;
+        return index + 1;
     }
 
     StringBuilder calculate(int number) {
@@ -64,12 +64,12 @@ public class StringCompression {
 
     public static void main(String[] args) {
         StringCompression comp = new StringCompression();
-        char[] chars = {'a','a','a','a','a','a','a','a','a','a','a','a','a','b','d','c','e'};
+        char[] chars = {'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'b', 'd', 'c', 'e'};
         int index = comp.compress(chars);
         System.out.println(index);
 
         for (int i = 0; i < index; i++) {
-            System.out.print(chars[i]+ ",");
+            System.out.print(chars[i] + ",");
         }
     }
 }

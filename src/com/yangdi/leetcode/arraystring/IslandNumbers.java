@@ -2,7 +2,7 @@ package com.yangdi.leetcode.arraystring;
 
 /**
  * Given an m x n 2d grid map of '1's (land) and '0's (water), return the number of islands.
- *
+ * <p>
  * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
  * You may assume all four edges of the grid are all surrounded by water.
  */
@@ -18,9 +18,9 @@ public class IslandNumbers {
         int number = 0;
 
         for (int i = 0; i < row; i++) {
-            for (int j =0 ; j < column; j++) {
+            for (int j = 0; j < column; j++) {
                 if (grid[i][j] == '1') {
-                    ++ number;
+                    ++number;
                     dfs(grid, i, j);
                 }
             }

@@ -27,7 +27,7 @@ public class CreateMyLinkedList {
         System.out.println(obj.get(5));
         obj.deleteAtIndex(6);
         obj.deleteAtIndex(4);
-        obj.addAtIndex(2,4);
+        obj.addAtIndex(2, 4);
         System.out.println(obj.get(4));
         System.out.println(obj.getHead());
         System.out.println(obj.getTail());

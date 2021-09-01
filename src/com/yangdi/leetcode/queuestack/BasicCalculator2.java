@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * 227. Basic Calculator II
- *
+ * <p>
  * s consists of digits, '+', '-', '*', '/', and ' '.
  * example: s = " 3+5 / 2 "
  */
@@ -27,7 +27,7 @@ public class BasicCalculator2 {
                 number = (number * 10) + (ch - '0');
             }
 
-            if (i == len - 1 || ch=='+' || ch=='-' || ch=='*' || ch=='/') {
+            if (i == len - 1 || ch == '+' || ch == '-' || ch == '*' || ch == '/') {
                 if (operation == '-') {
                     stack.push(-number);
                 } else if (operation == '+') {
@@ -49,6 +49,7 @@ public class BasicCalculator2 {
 
         return result;
     }
+
     /**
      * non-stack
      * Time complexity: O(n)

@@ -11,7 +11,7 @@ public class AccountsMerge {
      * Undirected graph connection problem
      * Create graph including all vertices and edges first
      * DFS search every vertex connected with current vertex
-     *
+     * <p>
      * Time Complexity: O(AlogA) (A = ∑ai)
      * Space Complexity: O(A)
      */
@@ -21,15 +21,15 @@ public class AccountsMerge {
         Map<String, ArrayList<String>> graph = new HashMap();
 
         // Create graph including all vertices and edges first
-        for (List<String> account: accounts) {
+        for (List<String> account : accounts) {
             String name = account.get(0);
             String vertex = account.get(1);
 
             for (int i = 1; i < account.size(); i++) {
                 String email = account.get(i);
                 // undirected graph edge needs two expression: N1->N2 & N2->N1
-                graph.computeIfAbsent(vertex, x-> new ArrayList<>()).add(email);
-                graph.computeIfAbsent(email, x-> new ArrayList<>()).add(vertex);
+                graph.computeIfAbsent(vertex, x -> new ArrayList<>()).add(email);
+                graph.computeIfAbsent(email, x -> new ArrayList<>()).add(vertex);
                 emailToName.put(email, name);
             }
         }
@@ -37,7 +37,7 @@ public class AccountsMerge {
         // DFS search every vertex connected with current vertex(iterative solution)
         Set<String> visited = new HashSet();
 
-        for (String email: graph.keySet()) {
+        for (String email : graph.keySet()) {
             if (!visited.contains(email)) {
                 visited.add(email);
 
@@ -48,7 +48,7 @@ public class AccountsMerge {
                 while (!stack.empty()) {
                     String node = stack.pop();
                     component.add(node);
-                    for (String neighbor: graph.get(node)) {
+                    for (String neighbor : graph.get(node)) {
                         if (!visited.contains(neighbor)) {
                             visited.add(neighbor);
                             stack.push(neighbor);
@@ -74,9 +74,9 @@ public class AccountsMerge {
         Map<String, Integer> emailToID = new HashMap();
 
         int id = 0;
-        for (List<String> account: accounts) {
+        for (List<String> account : accounts) {
             String name = "";
-            for (String email: account) {
+            for (String email : account) {
                 if (name == "") {
                     name = email;
                     continue;
@@ -92,11 +92,11 @@ public class AccountsMerge {
         }
 
         Map<Integer, List<String>> ans = new HashMap();
-        for (String email: emailToName.keySet()) {
+        for (String email : emailToName.keySet()) {
             int index = dsu.find(emailToID.get(email));
-            ans.computeIfAbsent(index, x-> new ArrayList()).add(email);
+            ans.computeIfAbsent(index, x -> new ArrayList()).add(email);
         }
-        for (List<String> component: ans.values()) {
+        for (List<String> component : ans.values()) {
             Collections.sort(component);
             component.add(0, emailToName.get(component.get(0)));
         }
@@ -105,6 +105,7 @@ public class AccountsMerge {
 
     class DSU {
         int[] parent;
+
         public DSU() {
             parent = new int[10001];
             for (int i = 0; i <= 10000; ++i) {

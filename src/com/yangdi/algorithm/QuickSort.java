@@ -6,10 +6,10 @@ public class QuickSort {
     /**
      * The main function implements QuickSort().
      * Tree Traversal - Preorder(root, left, right)
-     * <p>
+     *
      * Time complexity: O(nlogn)
      * Space complexity: average case: O(log n); the most worst case: O(n) (system stack)
-     * <p>
+     *
      * Is QuickSort stable? No
      * Is QuickSort in place? Yes
      */

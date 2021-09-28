@@ -4,6 +4,12 @@ public class MergeSort {
 
     /**
      * divide and conquer
+     *
+     * Time complexity: O(nlogn) (no worst case, always O(nlogn))
+     * Space complexity: O(n)
+     *
+     * Is it stable? Yes
+     * Is it in place? No
      */
     public void mergeSort(int[] array, int fromIndex, int endIndex) {
         if (fromIndex >= endIndex) {

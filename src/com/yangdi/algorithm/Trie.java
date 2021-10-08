@@ -3,6 +3,9 @@ package com.yangdi.algorithm;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 字典树
+ */
 public class Trie {
 
     /**

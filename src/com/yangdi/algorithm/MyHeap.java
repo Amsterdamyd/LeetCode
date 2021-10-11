@@ -11,7 +11,7 @@ package com.yangdi.algorithm;
  * Node at index K in array has children at index 2K+1 and 2K+2
  * Node at index K in array has parent at index (k-1)/2
  */
-public class Heap {
+public class MyHeap {
 
     /**
      * build a max-heap from an unsorted array
@@ -41,6 +41,19 @@ public class Heap {
             A[max] = tmp;
 
             heapify(A, len, max);
+        }
+    }
+
+    public void sort(int[] A) {
+        buildHeap(A);
+
+        int len = A.length;
+        for (int i = len-1; i > 0; i--) {
+            int tmp = A[0];
+            A[0] = A[i];
+            A[i] = tmp;
+
+            heapify(A, i, 0);
         }
     }
 }

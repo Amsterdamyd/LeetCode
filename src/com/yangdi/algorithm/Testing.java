@@ -2,6 +2,8 @@ package com.yangdi.algorithm;
 
 import java.util.*;
 
+import static java.lang.Math.sqrt;
+
 public class Testing {
 
     public static void main(String[] args) {
@@ -30,7 +32,7 @@ public class Testing {
             System.out.println(num);
         }*/
 
-        Set<List<Integer>> set = new HashSet<>();
+        /*Set<List<Integer>> set = new HashSet<>();
         List<Integer> list1 = Arrays.asList(-1,0,1);
         if (set.add(list1)) {
             System.out.println("add list1 successfully");
@@ -45,6 +47,24 @@ public class Testing {
             System.out.println("add list2 unsuccessfully");
         }
 
-        System.out.println(set.toString());
+        System.out.println(set.toString());*/
+
+        char ch1 = '2';
+        int x = ch1 - '0';
+        int y = Character.getNumericValue(ch1);
+
+        if (x == y) {
+            System.out.println("x=y= " + x);
+        } else {
+            System.out.println("x= " + x);
+            System.out.println("y= " + y);
+        }
+
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(3);
+        list.addFirst(5);
+        System.out.println(list.getFirst());
+        int m = (int)Math.pow(2,4);
+        sqrt((double)2);
     }
 }

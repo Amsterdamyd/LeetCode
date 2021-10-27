@@ -6,14 +6,10 @@ import java.util.List;
 import java.util.Stack;
 
 public class PostorderTraversal {
-    List<Integer> list = new ArrayList<>();
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        if (root == null) {
-            return list;
-        }
-
-        postOrder(root);
+        List<Integer> list = new ArrayList<>();
+        postOrder(root, list);
         return list;
     }
 
@@ -22,15 +18,15 @@ public class PostorderTraversal {
      * Time complexity: O(N)
      * Space complexity: O(H) (H is the tree height)
      */
-    void postOrder(TreeNode node) {
-        if (node.left != null) {
-            postOrder(node.left);
-        }
-        if (node.right != null) {
-            postOrder(node.right);
+    void postOrder(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
         }
 
-        list.add(node.val);
+        postOrder(node.left, list); // traverse left subtree
+        postOrder(node.right, list); // traverse right subtree
+
+        list.add(node.val); // visit the root
     }
 
     /**
@@ -49,15 +45,15 @@ public class PostorderTraversal {
 
         stack.push(root);
         while (!stack.isEmpty()) {
-            root = stack.pop();
-            output.addFirst(root.val); // This is where the trick is
+            TreeNode node = stack.pop();
+            output.addFirst(node.val); // This is where the trick is
 
-            if (root.left != null) {
-                stack.push(root.left);
+            if (node.left != null) {
+                stack.push(node.left);
             }
 
-            if (root.right != null) {
-                stack.push(root.right);
+            if (node.right != null) {
+                stack.push(node.right);
             }
         }
 

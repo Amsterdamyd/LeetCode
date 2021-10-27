@@ -1,19 +1,15 @@
 package com.yangdi.leetcode.binarytree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 public class InorderTraversal {
 
-    List<Integer> list = new ArrayList<>();
-
     public List<Integer> inorderTraversal(TreeNode root) {
-        if (root == null) {
-            return list;
-        }
-
-        inOrder(root);
+        List<Integer> list = new ArrayList<>();
+        inOrder(root, list);
         return list;
     }
 
@@ -22,12 +18,14 @@ public class InorderTraversal {
      * Time complexity: O(n)
      * Space complexity: average case: O(log n); the most worst case: O(n)
      */
-    void inOrder(TreeNode node) {
-        if (node == null) return;
+    void inOrder(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
 
-        inOrder(node.left);
-        list.add(node.val);
-        inOrder(node.right);
+        inOrder(node.left, list); // traverse left subtree
+        list.add(node.val); // visit the root
+        inOrder(node.right, list); // traverse right subtree
     }
 
     /**
@@ -37,13 +35,14 @@ public class InorderTraversal {
      * Space complexity: O(n)
      */
     public List<Integer> inorderTraversal2(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        LinkedList<Integer> output = new LinkedList<>();
+
         if (root == null) {
-            return list;
+            return output;
         }
 
-        Stack<TreeNode> stack = new Stack<>();
         TreeNode curr = root;
-
         while (curr != null || !stack.isEmpty()) {
             while (curr != null) { // search all the most left nodes and store them into stack
                 stack.push(curr);
@@ -52,13 +51,13 @@ public class InorderTraversal {
 
             // if reach to the left node of a leaf node, then poll the first node of the stack
             curr = stack.pop();
-            list.add(curr.val);
+            output.add(curr.val);
 
             // turn to right of the first node
             curr = curr.right;
         }
 
-        return list;
+        return output;
     }
 
     /**

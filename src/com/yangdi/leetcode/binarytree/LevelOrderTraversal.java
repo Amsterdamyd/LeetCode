@@ -9,48 +9,9 @@ import java.util.Queue;
  * 102. Binary Tree Level Order Traversal
  */
 public class LevelOrderTraversal {
-
     /**
-     * Recursive solution 1 (By myself)
-     * queue is used here
-     */
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> items = new ArrayList<>();
-        if (root == null) {
-            return items;
-        }
-
-        Queue<TreeNode> queue = new ArrayDeque();
-        queue.add(root);
-        levelParse(items, queue);
-        return items;
-    }
-
-    void levelParse(List<List<Integer>> items, Queue<TreeNode> queue) {
-        if (queue.isEmpty()) {
-            return;
-        }
-
-        List<Integer> item = new ArrayList<>();
-        int lenght = queue.size();
-
-        for (int i = 0; i < lenght; i++) {
-            TreeNode node = queue.poll();
-            item.add(node.val);
-            if (node.left != null) {
-                queue.add(node.left);
-            }
-            if (node.right != null) {
-                queue.add(node.right);
-            }
-        }
-
-        items.add(item);
-        levelParse(items, queue);
-    }
-
-    /**
-     * Recursive solution 2 (By LeetCode)
+     * Recursive solution
+     * By LeetCode
      * No queue is used here. It uses the system stack.
      */
     public List<List<Integer>> levelOrder3(TreeNode root) {
@@ -87,6 +48,7 @@ public class LevelOrderTraversal {
     public List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> items = new ArrayList<>();
         Queue<TreeNode> queue = new ArrayDeque();
+
         if (root == null) {
             return items;
         }

@@ -6,14 +6,10 @@ import java.util.List;
 import java.util.Stack;
 
 public class PreorderTraversal {
-    List<Integer> list = new ArrayList<>();
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-
-        preOrder(root);
+        List<Integer> list = new ArrayList<>();
+        preOrder(root, list);
         return list;
     }
 
@@ -22,15 +18,15 @@ public class PreorderTraversal {
      * Time complexity: O(n) (Every node will be visited once)
      * Space complexity: average case: O(log n); the most worst case: O(n)
      */
-    void preOrder(TreeNode node) {
+    void preOrder(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
 
-        list.add(node.val);
+        list.add(node.val); // visit the root
 
-        preOrder(node.left);
-        preOrder(node.right);
+        preOrder(node.left, list); // traverse left subtree
+        preOrder(node.right, list); // traverse right subtree
     }
 
     /**

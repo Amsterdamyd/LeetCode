@@ -53,7 +53,7 @@ public class BinarySearchTree {
 
     /**
      * binary search tree delete
-     * When we find the node needs to be delete, first search the successor in the right subtree.
+     * When we find the node needs to be deleted, first search the successor in the right subtree.
      * If there is no right subtree, then search the predecessor in the left subtree.
      */
     public TreeNode deleteNode(TreeNode root, int key) {
@@ -90,6 +90,7 @@ public class BinarySearchTree {
     /**
      * One step right and then always left
      * Find the minimum in the right subtree
+     * condition: right node is not null
      */
     public int successor(TreeNode node) {
         node = node.right;
@@ -103,6 +104,7 @@ public class BinarySearchTree {
     /**
      * One step left and then always right
      * Find the maximum in the left subtree
+     * condition: left node is not null
      */
     public int predecessor(TreeNode node) {
         node = node.left;
@@ -126,6 +128,10 @@ public class BinarySearchTree {
         inorderTraversal(root.right);
     }
 
+    /**
+     * check if the tree is a valid binary search tree
+     * condition: left subtree less than root; right subtree greater than root; equal is invalid(such as 2,2,2)
+     */
     public boolean isValidBST(TreeNode root) {
         return validate(root, null, null);
     }
@@ -142,6 +148,74 @@ public class BinarySearchTree {
         }
 
         // The left and right subtree must also be valid.
-        return validate(root.right, root.val, high) && validate(root.left, low, root.val);
+        return validate(root.left, low, root.val) && validate(root.right, root.val, high);
+    }
+
+    /**
+     * condition:
+     * 1. node is any node of the tree. (we don't know the root)
+     * 2. The TreeNode must be defined with a parent node
+     */
+    public TreeNode findPredecessor(TreeNode node) {
+        TreeNode predecesssor = null;
+
+        if (node.left != null) {
+            predecesssor = node.left;
+            while (predecesssor.right != null) {
+                predecesssor = predecesssor.right;
+            }
+        } else {
+            predecesssor = node.parent;
+            while (predecesssor != null && node == predecesssor.left) {
+                node = predecesssor;
+                predecesssor = predecesssor.parent;
+            }
+        }
+
+        return predecesssor;
+    }
+
+    /**
+     * condition:
+     * 1. node is any node of the tree. (we don't know the root)
+     * 2. The tree node must be defined with a parent node
+     */
+    public TreeNode findSuccessor(TreeNode node) {
+        TreeNode successor = null;
+
+        if (node.right != null) {
+            successor = node.right;
+            while (successor.left != null) {
+                successor = successor.left;
+            }
+        } else {
+            successor = node.parent;
+            while (successor != null && node == successor.right) {
+                node = successor;
+                successor = successor.parent;
+            }
+        }
+
+        return successor;
+    }
+
+    /**
+     * condition:
+     * 1. p is a node of the tree.
+     * 2. We know the root.
+     */
+    public TreeNode findSuccessor(TreeNode root, TreeNode p) {
+        TreeNode successor = null;
+
+        while (root != null) {
+            if (p.val >= root.val) {
+                root = root.right;
+            } else {
+                successor = root;
+                root = root.left;
+            }
+        }
+
+        return successor;
     }
 }

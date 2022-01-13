@@ -13,7 +13,11 @@ public class QuickSort {
      * Is QuickSort stable? No
      * Is QuickSort in place? Yes
      */
-    public static void quickSort(int arr[], int low, int high) {
+    public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length-1);
+    }
+
+    public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             //pi is partitioning index, arr[pi] is now at right place.
             int pi = partition(arr, low, high);

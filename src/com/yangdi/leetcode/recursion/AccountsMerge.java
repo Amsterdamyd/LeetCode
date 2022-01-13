@@ -125,4 +125,19 @@ public class AccountsMerge {
             parent[find(x)] = find(y);
         }
     }
+
+    public static void main(String[] args) {
+        List<List<String>> total = new ArrayList<>();
+        List<String> list1 = new ArrayList<>(Arrays.asList(new String[]{"John", "J1", "J2"}));
+        List<String> list2 = new ArrayList<>(Arrays.asList(new String[]{"John", "J1", "J3"}));
+        List<String> list3 = new ArrayList<>(Arrays.asList(new String[]{"Marry", "M1"}));
+        List<String> list4 = new ArrayList<>(Arrays.asList(new String[]{"John", "J4"}));
+        total.add(list1);
+        total.add(list2);
+        total.add(list3);
+        total.add(list4);
+
+        AccountsMerge merge = new AccountsMerge();
+        System.out.println(merge.accountsMerge(total));
+    }
 }

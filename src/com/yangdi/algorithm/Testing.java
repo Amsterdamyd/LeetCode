@@ -49,7 +49,7 @@ public class Testing {
 
         System.out.println(set.toString());*/
 
-        char ch1 = '2';
+        /*char ch1 = '2';
         int x = ch1 - '0';
         int y = Character.getNumericValue(ch1);
 
@@ -65,6 +65,37 @@ public class Testing {
         list.addFirst(5);
         System.out.println(list.getFirst());
         int m = (int)Math.pow(2,4);
-        sqrt((double)2);
+        sqrt((double)2);*/
+
+        List<int[]> list = createPossibleArray("123");
+        System.out.println(list.toString());
+    }
+
+    static List<int[]> createPossibleArray(String s) {
+        int index = 0;
+        int number = 0;
+
+        while (index < s.length() && s.charAt(index) >= '1' && s.charAt(index) <= '9') {
+            number = 10*number + (s.charAt(index)-'0');
+            index++;
+        }
+
+        List<int[]> list = new ArrayList<>();
+        if (number > 0) {
+            list.add(new int[]{number});
+        }
+        if (number >= 10 && number < 100) {
+            list.add(new int[]{number/10, number%10});
+        }
+        if (number >= 100 && number < 1000) {
+            list.add(new int[]{number/10, number%10});
+            list.add(new int[]{number/100, number%100});
+            int n1 = number/100;
+            int n2 = (number-n1*100)/10;
+            int n3 = number - n1*100 - n2*10;
+            list.add(new int[]{n1, n2, n3});
+        }
+
+        return list;
     }
 }

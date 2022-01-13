@@ -1,8 +1,10 @@
 package com.yangdi.leetcode.binarytree;
 
-import java.nio.file.Paths;
 import java.util.Stack;
 
+/**
+ * 112. Path Sum
+ */
 public class PathSum {
 
     /**

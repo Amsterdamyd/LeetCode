@@ -1,5 +1,7 @@
 package com.yangdi.algorithm;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
     /**
@@ -28,45 +30,30 @@ public class MergeSort {
     }
 
     void merge(int[] array, int fromIndex, int mid, int endIndex) {
-        int leftLen = mid - fromIndex + 1;
-        int rightLen = endIndex - mid;
+        // from: inclusive; to: exclusive
+        int[] leftArray = Arrays.copyOfRange(array, fromIndex, mid+1);
+        int[] rightArray = Arrays.copyOfRange(array, mid+1, endIndex+1);
 
-        // Copy data to temp left and right arrays
-        int[] leftArray = new int[leftLen];
-        int[] rightArray = new int[rightLen];
-        for (int i = 0; i < leftLen; i++) {
-            leftArray[i] = array[fromIndex + i];
-        }
-        for (int i = 0; i < rightLen; i++) {
-            rightArray[i] = array[mid + 1 + i];
-        }
-
-        // Merge the temp arrays
+        // Merge two temp arrays
         int i = 0, j = 0;
         int index = fromIndex;
-        while (i < leftLen && j < rightLen) {
+
+        while (i < leftArray.length && j < rightArray.length) {
             if (leftArray[i] <= rightArray[j]) {
-                array[index] = leftArray[i];
-                i++;
+                array[index++] = leftArray[i++];
             } else {
-                array[index] = rightArray[j];
-                j++;
+                array[index++] = rightArray[j++];
             }
-            index++;
         }
 
         // Copy remaining elements of L[] if any
-        while (i < leftLen) {
-            array[index] = leftArray[i];
-            i++;
-            index++;
+        while (i < leftArray.length) {
+            array[index++] = leftArray[i++];
         }
 
         // Copy remaining elements of R[] if any
-        while (j < rightLen) {
-            array[index] = rightArray[j];
-            j++;
-            index++;
+        while (j < rightArray.length) {
+            array[index++] = rightArray[j++];
         }
     }
 }

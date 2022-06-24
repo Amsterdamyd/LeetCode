@@ -16,8 +16,10 @@ public class ArrayAndList {
         list.add(8);
         list.add(6);
 
-        int[] A = {5, 1, 3, 4, 2};
+        int[] A = {5, 1, 3, 4, 2}; //Java API doesn't support sorting of primitive types with a Comparator.
         Integer[] B = {5, 1, 3, 4, 2};
+
+
 
         // list sorting
         list.sort(Comparator.naturalOrder()); // stable

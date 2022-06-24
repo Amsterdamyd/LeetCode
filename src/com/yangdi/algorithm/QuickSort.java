@@ -18,14 +18,16 @@ public class QuickSort {
     }
 
     public static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            //pi is partitioning index, arr[pi] is now at right place.
-            int pi = partition(arr, low, high);
-
-            //Recursively sort elements before partition and after partition.
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
+        if (low >= high) {
+            return;
         }
+
+        //pi is partitioning index, arr[pi] is now at right place.
+        int pi = partition(arr, low, high);
+
+        //Recursively sort elements before partition and after partition.
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
 
     /* This function takes last element as pivot,

@@ -47,19 +47,18 @@ public class LevelOrderTraversal {
      */
     public List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> items = new ArrayList<>();
-        Queue<TreeNode> queue = new ArrayDeque();
-
         if (root == null) {
             return items;
         }
 
+        Queue<TreeNode> queue = new ArrayDeque();
         queue.add(root);
 
         while (!queue.isEmpty()) {
             List<Integer> item = new ArrayList<>();
-            int length = queue.size();
 
-            for (int i = 0; i < length; i++) {
+            int len = queue.size();
+            for (int i = 0; i < len; i++) {
                 TreeNode node = queue.poll();
                 item.add(node.val);
 

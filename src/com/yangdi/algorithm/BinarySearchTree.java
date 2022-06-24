@@ -90,7 +90,7 @@ public class BinarySearchTree {
     /**
      * One step right and then always left
      * Find the minimum in the right subtree
-     * condition: right node is not null
+     * condition: node != null && node.right != null
      */
     public int successor(TreeNode node) {
         node = node.right;
@@ -104,7 +104,7 @@ public class BinarySearchTree {
     /**
      * One step left and then always right
      * Find the maximum in the left subtree
-     * condition: left node is not null
+     * condition: node != null && node.left != null
      */
     public int predecessor(TreeNode node) {
         node = node.left;
@@ -155,6 +155,10 @@ public class BinarySearchTree {
      * condition:
      * 1. node is any node of the tree. (we don't know the root)
      * 2. The TreeNode must be defined with a parent node
+     *
+     * intuition: if node has a left subtree, then we find the maximum of left subtree;
+     * if node doesn't have a left subtree, we have to search for its parent node,
+     * whenever the node is a right node of its parent, parent node is the node we want.
      */
     public TreeNode findPredecessor(TreeNode node) {
         TreeNode predecesssor = null;
@@ -179,6 +183,8 @@ public class BinarySearchTree {
      * condition:
      * 1. node is any node of the tree. (we don't know the root)
      * 2. The tree node must be defined with a parent node
+     *
+     * intuition: the opposite as above
      */
     public TreeNode findSuccessor(TreeNode node) {
         TreeNode successor = null;
@@ -197,6 +203,26 @@ public class BinarySearchTree {
         }
 
         return successor;
+    }
+
+    /**
+     * condition:
+     * 1. p is a node of the tree.
+     * 2. We know the root.
+     */
+    public TreeNode findPredecessor(TreeNode root, TreeNode p) {
+        TreeNode predecessor = null;
+
+        while (root != null) {
+            if (p.val <= root.val) {
+                root = root.left;
+            } else {
+                predecessor = root;
+                root = root.right;
+            }
+        }
+
+        return predecessor;
     }
 
     /**

@@ -6,16 +6,16 @@ package com.yangdi.algorithm;
  * down below is min heap
  */
 public class MyPriorityQueue {
-    int[] queue;
+    int[] arr;
     int size;
 
     public MyPriorityQueue() {
-        this.queue = new int[100];
+        this.arr = new int[100];
         this.size = 0;
     }
 
     public boolean add(int num) {
-        queue[size] = num;
+        arr[size] = num;
         siftUp(size);
         size++;
 
@@ -23,8 +23,8 @@ public class MyPriorityQueue {
     }
 
     public Integer poll() {
-        int tmp = queue[0];
-        queue[0] = queue[size - 1];
+        int tmp = arr[0];
+        arr[0] = arr[size - 1];
 
         size--;
         if (size > 0) {
@@ -38,14 +38,14 @@ public class MyPriorityQueue {
         if (size == 0) {
             return null;
         }
-        return queue[0];
+        return arr[0];
     }
 
     void siftUp(int index) {
         if (index > 0) {
             int parentIndex = (index-1) / 2;
 
-            if (queue[parentIndex] > queue[index]) {
+            if (arr[parentIndex] > arr[index]) {
                 swap(index, parentIndex);
             }
             siftUp(parentIndex);
@@ -57,10 +57,10 @@ public class MyPriorityQueue {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
 
-        if (left < size && queue[left] < queue[min]) {
+        if (left < size && arr[left] < arr[min]) {
             min = left;
         }
-        if (right < size && queue[right] < queue[min]) {
+        if (right < size && arr[right] < arr[min]) {
             min = right;
         }
 
@@ -71,8 +71,8 @@ public class MyPriorityQueue {
     }
 
     void swap(int i, int j) {
-        int tmp = queue[i];
-        queue[i] = queue[j];
-        queue[j] = tmp;
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 }

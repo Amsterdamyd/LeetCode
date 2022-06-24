@@ -6,4 +6,5 @@ package com.yangdi.algorithm;
 public class BreadthFirstSearch {
 
     // com.yangdi.leetcode.binarytree.LevelOrderTraversal.java
+    // breadth first search == level order traversal
 }

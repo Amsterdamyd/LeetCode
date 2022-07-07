@@ -71,21 +71,21 @@ public class Testing {
         /*String s2 = "qcpr", s1 = "eqdf";
         System.out.println(match(s1, s2) + "");*/
 
-        int[] nums = new int[]{3,5,6,2,5,4,19};
-        System.out.println(lengthOfLIS(nums));
+        /*int[] nums = new int[]{3,5,6,2,5,4,19};
+        System.out.println(lengthOfLIS(nums));*/
 
         /** string to int*/
         /*String val = "0012";
         System.out.println(Integer.valueOf(val) + "");*/
 
         /**string and split*/
-        /*
+
         //String queryIP = "2001:0db8:85a3:0:0:8A2E:0370:7334:";
         String queryIP = "/home//foo/";
         String[] v6s = queryIP.split("/");
         for (int i = 0; i < v6s.length; i++) {
             System.out.println("i = " + i + ": " + v6s[i]);
-        }*/
+        }
         // String.split takes a regex, and '.' has a special meaning for regexes.
         /*String version = "1.001.034";
         String[] versions = version.split("\\.");

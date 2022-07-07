@@ -10,6 +10,7 @@ public class Trie {
 
     /**
      * Definition of Trie node
+     * map can be used for unicode character set (more common)
      */
     public class TrieNode {
         Map<Character, TrieNode> children;
@@ -29,6 +30,7 @@ public class Trie {
 
     /**
      * search a word in trie
+     * time complexity: O(l) (l: the longest length of the str)
      */
     public boolean search(String word) {
         TrieNode current = root;

@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * 字典树
+ * time complexity: search() / insert(): O(str-length)
+ * space complexity: O(26 * average key-length * N), where N is th number of words in the trie.
  */
 public class Trie {
 

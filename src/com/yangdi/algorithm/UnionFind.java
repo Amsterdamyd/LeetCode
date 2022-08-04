@@ -2,6 +2,11 @@ package com.yangdi.algorithm;
 
 /**
  * 并查集
+ * time complexity:
+ * UnionFind construction: O(n)
+ * find(): O(logn)
+ * union(): O(logn)
+ * connected(): O(logn)
  */
 public class UnionFind {
     private int[] root;

@@ -6,6 +6,9 @@ import java.util.*;
  * 拓扑排序：将入度为0的顶点加入队列，依次poll出这些顶点，并将他们的临近结点入度减1，如出现新的入度为0结点，再入队列，并依次处理
  * 只适用于有向无环图
  * 典型应用：210. Course Schedule II
+ *
+ * time complexity: O(V+E), where V = Vertices, E = Edges.
+ * Space Complexity: O(V+E)
  */
 public class TopologicalSorting {
 

@@ -9,6 +9,7 @@ public class MonotonicStack {
      * find the first greater number behind i-th element, then return the result array
      * monotonically increase
      * solve a problem of the next greater number
+     * time complexity: O(n)
      */
     static int[] nextGreaterElement(int[] nums) {
         int[] answer = new int[nums.length]; // store answer

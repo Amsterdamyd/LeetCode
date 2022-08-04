@@ -34,7 +34,7 @@ public class MergeSort {
         int[] leftArray = Arrays.copyOfRange(array, fromIndex, mid+1);
         int[] rightArray = Arrays.copyOfRange(array, mid+1, endIndex+1);
 
-        // Merge two temp arrays
+        // Merge two sorted temp arrays
         int i = 0, j = 0;
         int index = fromIndex;
 

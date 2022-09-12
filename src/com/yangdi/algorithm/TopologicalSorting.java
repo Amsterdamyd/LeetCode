@@ -13,11 +13,10 @@ import java.util.*;
 public class TopologicalSorting {
 
     public int[] topologicalSort(int numCourses, int[][] prerequisites) {
-        int[] sortResult = new int[numCourses];
+        int[] result = new int[numCourses];
 
         Map<Integer, List<Integer>> neighbors = new HashMap<>();
         int[] indegree = new int[numCourses];
-        Queue<Integer> queue = new ArrayDeque<>();
 
         for (int[] prerequisite : prerequisites) {
             int destination = prerequisite[0];
@@ -30,6 +29,7 @@ public class TopologicalSorting {
         }
 
         // Add all vertices with 0 in-degree to the queue
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < numCourses; i++) {
             if (indegree[i] == 0) {
                 queue.add(i);
@@ -40,7 +40,7 @@ public class TopologicalSorting {
         int index = 0;
         while (!queue.isEmpty()) {
             int node = queue.poll();
-            sortResult[index++] = node; // get an element of sorted result
+            result[index++] = node; // get an element of sorted result
 
             for (int neighbor :  neighbors.getOrDefault(node, new ArrayList<>())) {
                 indegree[neighbor]--; // Reduce the in-degree of each neighbor by 1
@@ -53,7 +53,7 @@ public class TopologicalSorting {
         if (index != numCourses) { // circle exists
             return new int[0];
         } else {
-            return sortResult;
+            return result;
         }
     }
 }

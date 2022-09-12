@@ -76,13 +76,13 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int target = 6;
-        int[] nums = {2, 3, 4, 7, 9, 11, 13};
-        //int target = 4;
-        //int[] nums = {1,3,4,4,4,4,4,5,7};
+        //int target = 6;
+        //int[] nums = {2, 3, 4, 7, 9, 11, 13};
+        int target = 4;
+        int[] nums = {1,3,4,4,4,4,4,5,7};
 
         BinarySearch bSearch = new BinarySearch();
-        int k = bSearch.binarySearch3(nums, target);
+        int k = bSearch.binarySearch2(nums, target);
 
         System.out.println(k);
     }

@@ -34,7 +34,7 @@ public class QuickSort {
     places the pivot element at its correct position in sorted array,
     and places all smaller (smaller than pivot) to the left
     and all greater elements to the right. */
-    public static int partition(int arr[], int low, int high) {
+    public static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int storeIndex = low; // index of smaller element
 
@@ -42,20 +42,21 @@ public class QuickSort {
             // If current element is smaller than the pivot
             if (arr[i] < pivot) {
                 // swap arr[i] and arr[storeIndex]
-                int temp = arr[storeIndex];
-                arr[storeIndex] = arr[i];
-                arr[i] = temp;
-
+                swap(arr, i, storeIndex);
                 storeIndex++;
             }
         }
 
         // swap arr[storeIndex] and arr[high] (or pivot)
-        int temp = arr[storeIndex];
-        arr[storeIndex] = arr[high];
-        arr[high] = temp;
+        swap(arr, storeIndex, high);
 
         return storeIndex;
+    }
+
+    static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     public static void main(String[] args) {

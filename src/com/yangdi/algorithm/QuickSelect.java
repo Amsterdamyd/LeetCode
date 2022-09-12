@@ -33,9 +33,9 @@ public class QuickSelect {
         int pivot = nums[pivotIndex];
         // 1. move pivot to end
         swap(nums, pivotIndex, right);
-        int storeIndex = left;
 
         // 2. move all smaller elements to the left
+        int storeIndex = left;
         for (int i = left; i <= right; i++) {
             if (nums[i] < pivot) {
                 swap(nums, storeIndex, i);
@@ -60,7 +60,7 @@ public class QuickSelect {
         int k = 3;
 
         QuickSelect select = new QuickSelect();
-        int result = select.kthSmallest(A, 0, A.length-1, k);
+        int result = select.quickSelect(A, 0, A.length-1, k);
         System.out.println(result);
     }
 
